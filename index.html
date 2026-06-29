@@ -37,7 +37,9 @@
   .results-head h1{font-size:23px;letter-spacing:-.3px}
   .results-head .count{color:var(--muted);font-size:14px;font-weight:600}
   .subtitle{color:var(--muted);font-size:13.5px;margin:4px 0 20px;max-width:760px;line-height:1.5}
-  .sortbar{display:flex;align-items:center;gap:10px;margin-bottom:18px;font-size:13px;color:var(--muted)}
+  .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+  .toolbar .count{font-size:15px;font-weight:800;color:var(--ink)}
+  .sortbar{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
   .sortbar select{font-family:inherit;font-size:13px;border:1px solid var(--line2);border-radius:8px;padding:8px 12px;background:#fff;color:var(--ink);font-weight:600;cursor:pointer}
 
   /* ---- card list ---- */
@@ -138,21 +140,19 @@
 <div class="wrap">
   <!-- ====== RESULTS ====== -->
   <section id="results">
-    <div class="crumbs">Accueil › Voitures › PORSCHE › <b>911 Carrera T</b></div>
-    <div class="results-head">
-      <h1>PORSCHE 911 Carrera T</h1>
+    <div class="toolbar">
       <span class="count" id="count"></span>
-    </div>
-    <p class="subtitle">Ma sélection d'occasions 911 Carrera T (génération 992 &amp; 991.2) — la 911 « pur conducteur » : châssis sport, boîte manuelle 7 rapports ou PDK, allègement. Cliquez une annonce pour voir le détail.</p>
-    <div class="sortbar">
-      <span>Trier&nbsp;:</span>
-      <select id="sort" onchange="renderList()">
-        <option value="date-desc">Date — plus récentes d'abord</option>
-        <option value="date-asc">Date — plus anciennes d'abord</option>
-        <option value="default">Pertinence</option>
-        <option value="price-asc">Prix croissant</option>
-        <option value="price-desc">Prix décroissant</option>
-      </select>
+      <div class="sortbar">
+        <span>Trier&nbsp;:</span>
+        <select id="sort" onchange="renderList()">
+          <option value="date-desc">Plus récentes d'abord</option>
+          <option value="date-asc">Plus anciennes d'abord</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="km-asc">Km croissant</option>
+          <option value="km-desc">Km décroissant</option>
+        </select>
+      </div>
     </div>
     <div class="list" id="list"></div>
   </section>
@@ -173,8 +173,7 @@
   "title": "PORSCHE 911 Carrera T",
   "variant": "991.2 · Miami Blue · pièce unique en Suisse",
   "price": 115000,
-  "badge": "Top",
-  "badgeTop": true,
+  "badge": "Manuelle",
   "saved": "2025-08-12",
   "year": null,
   "km": null,
@@ -227,8 +226,7 @@
   "title": "PORSCHE 911 Carrera T",
   "variant": "991.2 · Miami Blue · enregistrement du 29 juin",
   "price": 115000,
-  "badge": "Top",
-  "badgeTop": true,
+  "badge": "Manuelle",
   "saved": "2026-06-29",
   "year": null,
   "km": null,
@@ -834,20 +832,11 @@
    "Avec garantie"
   ],
   "img": {
-   "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
+   "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
   },
   "gallery": [
    {
-    "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
-   },
-   {
-    "gid": "1vRNVUxr0E3HIjh74PWfiy8P4DcaYSx0a"
-   },
-   {
-    "gid": "1j7Y_BUgp5iHQLm3QG8puYQ5jUDYoTD2n"
-   },
-   {
-    "gid": "15FkmghvzybHOfcLYfDEOVyWMOD_zhep1"
+    "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
    },
    {
     "gid": "1NN8txgbXlq3owdGFfkUJ8otJ5hKF6NS_"
@@ -856,10 +845,10 @@
     "gid": "1XSqAqOH7yMPHBcmQauCpKo0yEdcX7DdN"
    },
    {
-    "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
+    "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
    },
    {
-    "gid": "1OyhMdQq_iI5ZgY4CbD957rouOWkxOiMH"
+    "gid": "15FkmghvzybHOfcLYfDEOVyWMOD_zhep1"
    },
    {
     "gid": "1SVOzfOyKXfHyS57ZfNLoi39JH3sdHpZF"
@@ -1172,8 +1161,11 @@ function cardHTML(c){
 function renderList(){
   let arr=[...CARS];
   const s=document.getElementById('sort').value;
+  const kmN=v=>{const n=parseInt(String(v||'').replace(/[^0-9]/g,''));return isNaN(n)?Infinity:n;};
   if(s==='price-asc') arr.sort((a,b)=>(a.price||1e9)-(b.price||1e9));
   if(s==='price-desc') arr.sort((a,b)=>(b.price||0)-(a.price||0));
+  if(s==='km-asc') arr.sort((a,b)=>kmN(a.km)-kmN(b.km));
+  if(s==='km-desc') arr.sort((a,b)=>(kmN(b.km)===Infinity?-1:kmN(b.km))-(kmN(a.km)===Infinity?-1:kmN(a.km)));
   if(s==='date-desc') arr.sort((a,b)=>(SAVED[b.id]||'0').localeCompare(SAVED[a.id]||'0'));
   if(s==='date-asc') arr.sort((a,b)=>(SAVED[a.id]||'9').localeCompare(SAVED[b.id]||'9'));
   document.getElementById('list').innerHTML=arr.map(cardHTML).join('');

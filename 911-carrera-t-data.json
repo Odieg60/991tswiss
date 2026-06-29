@@ -5,8 +5,7 @@
   "title": "PORSCHE 911 Carrera T",
   "variant": "991.2 · Miami Blue · pièce unique en Suisse",
   "price": 115000,
-  "badge": "Top",
-  "badgeTop": true,
+  "badge": "Manuelle",
   "saved": "2025-08-12",
   "year": null,
   "km": null,
@@ -59,8 +58,7 @@
   "title": "PORSCHE 911 Carrera T",
   "variant": "991.2 · Miami Blue · enregistrement du 29 juin",
   "price": 115000,
-  "badge": "Top",
-  "badgeTop": true,
+  "badge": "Manuelle",
   "saved": "2026-06-29",
   "year": null,
   "km": null,
@@ -666,20 +664,11 @@
    "Avec garantie"
   ],
   "img": {
-   "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
+   "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
   },
   "gallery": [
    {
-    "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
-   },
-   {
-    "gid": "1vRNVUxr0E3HIjh74PWfiy8P4DcaYSx0a"
-   },
-   {
-    "gid": "1j7Y_BUgp5iHQLm3QG8puYQ5jUDYoTD2n"
-   },
-   {
-    "gid": "15FkmghvzybHOfcLYfDEOVyWMOD_zhep1"
+    "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
    },
    {
     "gid": "1NN8txgbXlq3owdGFfkUJ8otJ5hKF6NS_"
@@ -688,10 +677,10 @@
     "gid": "1XSqAqOH7yMPHBcmQauCpKo0yEdcX7DdN"
    },
    {
-    "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
+    "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
    },
    {
-    "gid": "1OyhMdQq_iI5ZgY4CbD957rouOWkxOiMH"
+    "gid": "15FkmghvzybHOfcLYfDEOVyWMOD_zhep1"
    },
    {
     "gid": "1SVOzfOyKXfHyS57ZfNLoi39JH3sdHpZF"
