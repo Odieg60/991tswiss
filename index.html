@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PORSCHE 911 Carrera T — Sélection</title>
+<title>Porsche 991 Carrera T Swiss tracker</title>
 <style>
   :root{
     --yellow:#f5f200;
@@ -26,12 +26,8 @@
   /* ---- top bar ---- */
   header.topbar{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
   .topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 20px}
-  .logo{display:flex;align-items:center;gap:0;font-weight:800;font-size:20px;letter-spacing:-.3px;cursor:pointer}
-  .logo .mark{background:var(--yellow);color:#000;border-radius:7px;padding:4px 9px;font-weight:900;margin-right:8px}
-  .logo small{font-weight:600;color:var(--muted);font-size:12px;margin-left:8px;letter-spacing:.2px}
-  .topnav{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:600;color:#33373d}
-  .topnav span{cursor:default}
-  @media(max-width:720px){.topnav{display:none}}
+  .brand{font-weight:900;font-size:21px;letter-spacing:-.4px;cursor:pointer;color:var(--ink)}
+  .brand-accent{color:var(--yellow-dark);font-weight:800}
 
   /* ---- results header ---- */
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
@@ -135,8 +131,7 @@
 <body>
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="logo" onclick="goHome()"><span class="mark">AS</span>AutoScout24<small>· ma sélection 911 Carrera T</small></div>
-    <nav class="topnav"><span>Acheter</span><span>Vendre</span><span>Leasing</span><span>Magazine</span></nav>
+    <div class="brand" onclick="goHome()">Porsche 991 Carrera T <span class="brand-accent">Swiss&nbsp;tracker</span></div>
   </div>
 </header>
 
