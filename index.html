@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PORSCHE 911 Carrera T — Sélection</title>
+<style>
+  :root{
+    --yellow:#f5f200;
+    --yellow-dark:#c1b900;
+    --ink:#16181c;
+    --muted:#696969;
+    --line:#eaeaea;
+    --line2:#d7d7d7;
+    --bg:#f6f6f4;
+    --card:#ffffff;
+    --red:#fd351a;
+    --green:#2c6415;
+    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* ---- top bar ---- */
+  header.topbar{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+  .topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 20px}
+  .logo{display:flex;align-items:center;gap:0;font-weight:800;font-size:20px;letter-spacing:-.3px;cursor:pointer}
+  .logo .mark{background:var(--yellow);color:#000;border-radius:7px;padding:4px 9px;font-weight:900;margin-right:8px}
+  .logo small{font-weight:600;color:var(--muted);font-size:12px;margin-left:8px;letter-spacing:.2px}
+  .topnav{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:600;color:#33373d}
+  .topnav span{cursor:default}
+  @media(max-width:720px){.topnav{display:none}}
+
+  /* ---- results header ---- */
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
+  .crumbs{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+  .crumbs b{color:var(--ink)}
+  .results-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .results-head h1{font-size:23px;letter-spacing:-.3px}
+  .results-head .count{color:var(--muted);font-size:14px;font-weight:600}
+  .subtitle{color:var(--muted);font-size:13.5px;margin:4px 0 20px;max-width:760px;line-height:1.5}
+  .sortbar{display:flex;align-items:center;gap:10px;margin-bottom:18px;font-size:13px;color:var(--muted)}
+  .sortbar select{font-family:inherit;font-size:13px;border:1px solid var(--line2);border-radius:8px;padding:8px 12px;background:#fff;color:var(--ink);font-weight:600;cursor:pointer}
+
+  /* ---- card list ---- */
+  .list{display:flex;flex-direction:column;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:340px 1fr;cursor:pointer;transition:box-shadow .15s,transform .15s}
+  .card:hover{box-shadow:0 8px 28px rgba(0,0,0,.10);transform:translateY(-2px)}
+  .card .ph{position:relative;background:#e9e9ec;aspect-ratio:4/3;overflow:hidden}
+  .card .ph img{width:100%;height:100%;object-fit:cover}
+  .badge{position:absolute;top:10px;left:10px;background:var(--yellow);color:#000;font-weight:800;font-size:11px;padding:4px 9px;border-radius:6px;letter-spacing:.3px;text-transform:uppercase}
+  .badge.top{background:var(--ink);color:var(--yellow)}
+  .imgcount{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;display:flex;gap:5px;align-items:center}
+  .datechip{position:absolute;top:10px;right:10px;background:#fff;color:var(--ink);font-weight:800;font-size:11.5px;padding:4px 9px;border-radius:6px;display:flex;gap:6px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.18);border-left:3px solid var(--yellow)}
+  .datechip svg{width:13px;height:13px;color:var(--muted)}
+  .datechip b{font-weight:800}
+  .ddate{display:inline-flex;align-items:center;gap:7px;margin-top:12px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--yellow);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:700}
+  .ddate svg{width:16px;height:16px;color:var(--muted)}
+  .ddate span{color:var(--muted);font-weight:600}
+  .dupflag{display:inline-flex;align-items:center;gap:6px;margin-top:10px;align-self:flex-start;background:#fff4d6;color:#7a5c00;border:1px solid #f0d98a;border-radius:20px;padding:4px 11px;font-size:12px;font-weight:800}
+  .dupflag svg{width:14px;height:14px}
+  .dupbox{background:#fff8e6;border:1px solid #f0d98a;border-radius:14px;padding:18px 20px;margin-top:22px}
+  .dupbox h2{font-size:15px;font-weight:800;margin-bottom:6px;color:#7a5c00;display:flex;align-items:center;gap:8px}
+  .dupbox h2 svg{width:18px;height:18px}
+  .dupbox p{font-size:13px;color:#8a6d1a;margin-bottom:12px}
+  .duplink{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:1px solid var(--line2);border-radius:10px;padding:10px 12px;margin-top:8px;cursor:pointer;font-family:inherit}
+  .duplink:hover{border-color:var(--yellow-dark);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .duplink img{width:64px;height:46px;object-fit:cover;border-radius:6px;flex:none;background:#e9e9ec}
+  .duplink .t{font-weight:700;font-size:13.5px}
+  .duplink .s{font-size:12px;color:var(--muted);margin-top:2px}
+  .duplink .go{margin-left:auto;color:var(--muted)}.duplink .go svg{width:18px;height:18px}
+  .card .body{padding:16px 18px;display:flex;flex-direction:column;min-width:0}
+  .card .title{font-size:18px;font-weight:800;letter-spacing:-.2px}
+  .card .desc{color:var(--muted);font-size:13px;margin-top:5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price{font-size:21px;font-weight:900;margin-top:12px}
+  .price .old{font-size:13px;font-weight:600;color:var(--muted);text-decoration:line-through;margin-left:8px}
+  .specs{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:14px}
+  .spec{display:flex;align-items:center;gap:7px;font-size:13px;color:#33373d;font-weight:600}
+  .spec svg{width:17px;height:17px;color:var(--muted);flex:none}
+  .seller{margin-top:auto;padding-top:14px;font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .seller .dot{width:3px;height:3px;border-radius:50%;background:var(--line2)}
+  @media(max-width:680px){.card{grid-template-columns:1fr}.card .ph{aspect-ratio:16/10}}
+
+  /* ---- detail ---- */
+  #detail{display:none}
+  body.detail #results{display:none}
+  body.detail #detail{display:block}
+  .back{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:#33373d;cursor:pointer;margin-bottom:16px}
+  .back svg{width:18px;height:18px}
+  .dgrid{display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start}
+  @media(max-width:920px){.dgrid{grid-template-columns:1fr}}
+  .gallery{background:#0d0e10;border-radius:16px;overflow:hidden}
+  .gallery .main{position:relative;aspect-ratio:16/10;background:#0d0e10}
+  .gallery .main img{width:100%;height:100%;object-fit:cover}
+  .gnav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .gnav:hover{background:rgba(0,0,0,.8)}
+  .gnav.prev{left:14px}.gnav.next{right:14px}
+  .gnav svg{width:22px;height:22px}
+  .gcount{position:absolute;bottom:12px;right:14px;background:rgba(0,0,0,.62);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px}
+  .thumbs{display:flex;gap:8px;padding:10px;overflow-x:auto;background:#0d0e10}
+  .thumbs img{width:84px;height:60px;object-fit:cover;border-radius:6px;opacity:.55;cursor:pointer;flex:none;border:2px solid transparent}
+  .thumbs img.active{opacity:1;border-color:var(--yellow)}
+
+  .dtitle{font-size:27px;font-weight:900;letter-spacing:-.4px;line-height:1.15}
+  .dsub{color:var(--muted);font-size:14px;margin-top:6px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+  .pricebox .big{font-size:30px;font-weight:900}
+  .pricebox .lease{font-size:13px;color:var(--muted);margin-top:6px}
+  .btn{display:block;width:100%;text-align:center;padding:13px;border-radius:10px;font-weight:800;font-size:14.5px;border:none;cursor:pointer;margin-top:14px}
+  .btn.primary{background:var(--yellow);color:#000}
+  .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line2);margin-top:10px}
+  .sellercard{margin-top:18px}
+  .sellercard .nm{font-weight:800;font-size:15px}
+  .sellercard .addr{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.5}
+  .sellercard .tag{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:700;color:var(--green);background:#eaf5e3;padding:3px 9px;border-radius:6px}
+
+  .section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:22px}
+  .section h2{font-size:17px;font-weight:800;margin-bottom:16px}
+  .keygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .keyitem{display:flex;gap:11px;align-items:flex-start}
+  .keyitem svg{width:21px;height:21px;color:var(--muted);flex:none;margin-top:2px}
+  .keyitem .k{font-size:12px;color:var(--muted)}
+  .keyitem .v{font-size:14.5px;font-weight:700;margin-top:1px}
+  .equip{columns:2;column-gap:30px}
+  @media(max-width:620px){.equip{columns:1}}
+  .equip li{list-style:none;font-size:14px;padding:7px 0 7px 24px;position:relative;break-inside:avoid;color:#23262b;border-bottom:1px solid var(--line)}
+  .equip li:before{content:"";position:absolute;left:0;top:12px;width:12px;height:7px;border-left:2px solid var(--yellow-dark);border-bottom:2px solid var(--yellow-dark);transform:rotate(-45deg)}
+  .desc-txt{font-size:14.5px;line-height:1.7;color:#23262b;white-space:pre-line}
+  .modelnote{font-size:13px;color:var(--muted);line-height:1.7;margin-top:4px}
+  footer{max-width:1180px;margin:0 auto;padding:30px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo" onclick="goHome()"><span class="mark">AS</span>AutoScout24<small>· ma sélection 911 Carrera T</small></div>
+    <nav class="topnav"><span>Acheter</span><span>Vendre</span><span>Leasing</span><span>Magazine</span></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- ====== RESULTS ====== -->
+  <section id="results">
+    <div class="crumbs">Accueil › Voitures › PORSCHE › <b>911 Carrera T</b></div>
+    <div class="results-head">
+      <h1>PORSCHE 911 Carrera T</h1>
+      <span class="count" id="count"></span>
+    </div>
+    <p class="subtitle">Ma sélection d'occasions 911 Carrera T (génération 992 &amp; 991.2) — la 911 « pur conducteur » : châssis sport, boîte manuelle 7 rapports ou PDK, allègement. Cliquez une annonce pour voir le détail.</p>
+    <div class="sortbar">
+      <span>Trier&nbsp;:</span>
+      <select id="sort" onchange="renderList()">
+        <option value="date-desc">Date — plus récentes d'abord</option>
+        <option value="date-asc">Date — plus anciennes d'abord</option>
+        <option value="default">Pertinence</option>
+        <option value="price-asc">Prix croissant</option>
+        <option value="price-desc">Prix décroissant</option>
+      </select>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <!-- ====== DETAIL ====== -->
+  <section id="detail"></section>
+</div>
+
+<footer>
+  Visionneuse personnelle — annonces PORSCHE 911 Carrera T enregistrées depuis AutoScout24.ch. Images : listing-images.autoscout24.ch. Reproduction non officielle de la mise en page à des fins de consultation privée.
+</footer>
+
+<script type="application/json" id="cars-data">
+[
+ {
+  "id": "12668740",
+  "dupKey": "miami-blue",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "991.2 · Miami Blue · pièce unique en Suisse",
+  "price": 115000,
+  "badge": "Top",
+  "badgeTop": true,
+  "saved": "2025-08-12",
+  "year": null,
+  "km": null,
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Miami Blue",
+  "bodytype": "Coupé",
+  "seller": "Vendeur privé",
+  "place": "9043 Trogen",
+  "short": "991.2 Carrera T Miami Blue, sièges baquets 918, direction essieu arrière — configuration usine unique.",
+  "desc": "Einzigartiger 991.2 Carrera T Miami Blue.\n\n918-Schalensitze (sièges baquets type 918), Hinterachslenkung (direction essieu arrière), wohl einmalig in der Schweiz — alles ab WERK (tout d'origine usine).",
+  "equip": [
+   "Peinture Miami Blue",
+   "Sièges baquets 918",
+   "Direction essieu arrière",
+   "Boîte manuelle 7 rapports",
+   "Configuration usine complète",
+   "Pièce probablement unique en Suisse"
+  ],
+  "img": {
+   "gid": "18MwdYivLAacyVUmpwO1DnEKQ73Y-BzDZ"
+  },
+  "gallery": [
+   {
+    "gid": "18MwdYivLAacyVUmpwO1DnEKQ73Y-BzDZ"
+   },
+   {
+    "gid": "1uKrGEdff1175cDA3SKwPEPk76VhjXCIv"
+   },
+   {
+    "gid": "1HrXJ3qCNrydPFoYayPXGfI2Q0JufwUuw"
+   },
+   {
+    "gid": "1ZjgY3wOT0WapCAYqE_zqBQSRcjNIBkO2"
+   },
+   {
+    "gid": "1pBRMeE6Q3l-U5xX2yCaMbfmQZquLr_FQ"
+   },
+   {
+    "gid": "1MyR13c588y_uzfihzareGCnb8-m4Nenz"
+   }
+  ]
+ },
+ {
+  "id": "12668740b",
+  "listing": "12668740",
+  "dupKey": "miami-blue",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "991.2 · Miami Blue · enregistrement du 29 juin",
+  "price": 115000,
+  "badge": "Top",
+  "badgeTop": true,
+  "saved": "2026-06-29",
+  "year": null,
+  "km": null,
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Miami Blue",
+  "bodytype": "Coupé",
+  "seller": "Vendeur privé",
+  "place": "9043 Trogen",
+  "short": "Même 911 Carrera T Miami Blue (annonce 12668740) — nouvelle sauvegarde du 29 juin avec galerie complète.",
+  "desc": "PORSCHE 911 Carrera T — 991.2 Miami Blue.\n\nMême annonce AutoScout24 (réf. 12668740) que la fiche « pièce unique », ré-enregistrée le 29 juin 2026 avec une galerie photos complète.",
+  "equip": [
+   "Peinture Miami Blue",
+   "Sièges baquets 918",
+   "Direction essieu arrière",
+   "Boîte manuelle 7 rapports",
+   "Configuration usine complète"
+  ],
+  "img": {
+   "gid": "18MwdYivLAacyVUmpwO1DnEKQ73Y-BzDZ"
+  },
+  "gallery": [
+   {
+    "gid": "18MwdYivLAacyVUmpwO1DnEKQ73Y-BzDZ"
+   },
+   {
+    "gid": "1cU2fWjZig7cpBnoZM79zZW_6fBWtJ8VY"
+   },
+   {
+    "gid": "1mRht-_2dodj38wXmEYq3GxezaNmFjI0L"
+   },
+   {
+    "gid": "1yYvvJF2FrpzCot6K2kH0tMq31Yo6my6T"
+   },
+   {
+    "gid": "144NrzlOiFYEwzA9Ml9hE4c7qAYFg6asR"
+   },
+   {
+    "gid": "19TwtwFcn9kmModNhyhQmFSqtzHmSMfws"
+   },
+   {
+    "gid": "1hm1Sb0mAAk1EbtscCRxZNok9virC2uG9"
+   },
+   {
+    "gid": "1E5HedGNUdXFFxMxIlWVgb5LKS2j8IJR7"
+   },
+   {
+    "gid": "1r95ox-zvx5Tpy5UXmo_l0rEYm8mcd8MY"
+   },
+   {
+    "gid": "1QjzafPNe76aaDeYtTA-gs6JkJscjZk-z"
+   },
+   {
+    "gid": "1NXfOr5vjxoULY_19FrHgvGGI9TKMH75V"
+   },
+   {
+    "gid": "1VsVAKNoE2avEJ98nQesKTWwojt41pzac"
+   }
+  ]
+ },
+ {
+  "id": "20525796",
+  "listing": "20525796",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "Boîte manuelle 7 rapports · version US · pack allègement",
+  "price": 95000,
+  "badge": "Manuelle",
+  "saved": "2026-06-19",
+  "year": "07.2018",
+  "km": null,
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Gris",
+  "bodytype": "Coupé",
+  "seller": "Garage Steinegger",
+  "place": "8856 Tuggen",
+  "short": "Boîte manuelle 7 rapports, construction allégée, équipement Carrera T complet.",
+  "desc": "Mit 7-Gang Handschaltung, Leichtbau etc.\n\nSonderausstattung :\n• Interieur-Paket Carrera T\n• Spurwechselassistent (assistant de changement de voie)\n• Hinterachslenkung (direction essieu arrière)\n• Multifunktions- und Lenkradheizung (volant chauffant)\n• Entfall Modellbezeichnung\n• Raucherpaket\n• LED-Hauptscheinwerfer inkl. PDLS Plus\n• Porsche Entry & Drive\n• BOSE Surround Sound-System\n• GT-Sportlenkrad und Schalthebel Alcantara\n• Adaptive Sportsitze Plus (18 Wege, elektrisch)\n• Zifferblätter Kombiinstrument weiß",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Direction essieu arrière",
+   "LED + PDLS Plus",
+   "Pack intérieur Carrera T",
+   "Sièges sport adaptatifs Plus 18 voies",
+   "Volant GT sport Alcantara",
+   "BOSE Surround Sound",
+   "Porsche Entry & Drive",
+   "Assistant changement de voie",
+   "Cadrans blancs"
+  ],
+  "img": {
+   "gid": "1ighdL43un5hfUnA5j3rhSnAPgn5LlKt9"
+  },
+  "gallery": [
+   {
+    "gid": "1ighdL43un5hfUnA5j3rhSnAPgn5LlKt9"
+   },
+   {
+    "gid": "1e24znU2E6cxdTO52uchhk2mMWqXFDCBl"
+   },
+   {
+    "gid": "1K4jKz2Rt3igTRC8fqiWcZZpUJjS4eAf3"
+   },
+   {
+    "gid": "1417pUKHd5pwfpUBSQCUAxnvcvLwYMN9T"
+   },
+   {
+    "gid": "1ws7bw7pT62LkBu9CbyqN-Vv7wPc_4oCY"
+   },
+   {
+    "gid": "1dw2cbdG-IKPD03-C5QUYAS4ccOZiDLHN"
+   },
+   {
+    "gid": "12wrDwX-bgM-lxPBihAVnNseQx2TucTMw"
+   },
+   {
+    "gid": "1DXtBRpP7HMNQHc2e-0BDzNNWCItfdTjT"
+   },
+   {
+    "gid": "1HVoZu5u8qvTxOhOXxs4nN13bU4FBTl3v"
+   },
+   {
+    "gid": "1QR8ZBniLVG5nnodZ3jJGK_q0C7Pm1a-B"
+   }
+  ]
+ },
+ {
+  "id": "20525796t",
+  "listing": "20525796",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "Garage Steinegger, Tuggen · enregistrement du 29 juin",
+  "price": 95000,
+  "badge": "Manuelle",
+  "saved": "2026-06-29",
+  "year": "07.2018",
+  "km": null,
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Gris",
+  "bodytype": "Coupé",
+  "seller": "Garage Steinegger",
+  "place": "8856 Tuggen",
+  "short": "Même 911 Carrera T (annonce 20525796), re-enregistrée le 29 juin — galerie du Garage Steinegger.",
+  "desc": "PORSCHE 911 Carrera T — Garage Steinegger, Tuggen (SZ).\n\nMême annonce AutoScout24 (réf. 20525796) que la fiche « version US », enregistrée à nouveau le 29 juin 2026 avec la galerie complète du garage.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Direction essieu arrière",
+   "LED + PDLS Plus",
+   "Pack intérieur Carrera T",
+   "Sièges sport adaptatifs Plus 18 voies",
+   "BOSE Surround Sound",
+   "Échappement sport"
+  ],
+  "img": {
+   "gid": "15FjbpFryklhPPbg-i34ofJfCdFHwiQs5"
+  },
+  "gallery": [
+   {
+    "gid": "15FjbpFryklhPPbg-i34ofJfCdFHwiQs5"
+   },
+   {
+    "gid": "1OEm6QaifDIVV-E4RoA7-GSBeg3Cy3tNZ"
+   },
+   {
+    "gid": "1M7WPxqNBm0FC6zTaE9ABxb5eBVfSLb3M"
+   },
+   {
+    "gid": "1C6Z8-676SZ8uQfwbQ-xVRN3hrrVYsWq8"
+   },
+   {
+    "gid": "1ht1ZFkxczaGM1N3LW9EseoL4Ks66tC6u"
+   },
+   {
+    "gid": "16tkW5J8xma1p0tL83cuKdjfJDYqrLJ56"
+   },
+   {
+    "gid": "1JbvcMWxUXk2DnHspMA0251VJfdzTGqcU"
+   },
+   {
+    "gid": "14ui2ub1V8M5p86X6Pr3L_nwJG99VvLx6"
+   },
+   {
+    "gid": "1hrOORWhS1JUMhywB17mIgTPcSkm5Ogtf"
+   },
+   {
+    "gid": "1yMZ9YG4amK5gXG2PUc6qyEPg57_ScSVv"
+   },
+   {
+    "gid": "1CYibAs3hLOiJ1Zi5d0IGlxY3-KpipUgU"
+   }
+  ]
+ },
+ {
+  "id": "20493502",
+  "title": "PORSCHE 911 Carrera T PDK",
+  "variant": "991.2 · PDK · freins céramique · jantes 20\"",
+  "price": 89900,
+  "badge": "PDK",
+  "saved": "",
+  "year": "08.2018",
+  "km": "60'900 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "PDK (boîte robotisée)",
+  "cons": "9.5 l/100 km",
+  "color": "—",
+  "bodytype": "Coupé",
+  "seller": "CAR44 GmbH",
+  "place": "8834 Schindellegi",
+  "short": "CH-AUTO. PDK, freins céramique, jantes 20\", Pack Sport Chrono, sièges cuir électriques, échappement sport.",
+  "desc": "** CH-AUTO **\n\nPDK, Keramikbremsen (freins céramique), 20 Zoll Felgen (jantes 20\"), Sport-Chrono Paket, Ledersitze elektrisch verstellbar (sièges cuir réglables électriquement), Sportauspuffanlage (échappement sport), Dämpfer verstellbar (amortisseurs réglables) etc.",
+  "equip": [
+   "Boîte PDK",
+   "Freins céramique (PCCB)",
+   "Jantes 20 pouces",
+   "Pack Sport Chrono",
+   "Sièges cuir électriques",
+   "Échappement sport",
+   "Amortisseurs pilotés (PASM)",
+   "Véhicule dédouané CH"
+  ],
+  "img": {
+   "id": "1441650250",
+   "ext": "jpg"
+  },
+  "gallery": []
+ },
+ {
+  "id": "11678182",
+  "title": "PORSCHE 911 Carrera PDK",
+  "variant": "911 Carrera PDK · concession Gato Auto",
+  "price": 89900,
+  "badge": "Carrera",
+  "saved": "2024-10-09",
+  "year": null,
+  "km": null,
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "PDK (boîte robotisée)",
+  "cons": null,
+  "color": "—",
+  "bodytype": "Coupé",
+  "seller": "Gato Auto",
+  "place": "1290 Versoix",
+  "short": "911 Carrera PDK (hors gamme « T ») — galerie complète, vendue par la concession Gato Auto à Versoix.",
+  "desc": "PORSCHE 911 Carrera PDK proposée par Gato Auto (Versoix, GE).\n\nNB : il s'agit d'une 911 Carrera « classique » (pas une Carrera T) présente dans le dossier — conservée ici pour comparaison.",
+  "equip": [
+   "Boîte PDK",
+   "Vendeur professionnel (Gato Auto)",
+   "Galerie photos complète (12 photos)"
+  ],
+  "img": {
+   "gid": "1JgCEp5XssWETin2GxN0SAAiZAFQO-9fn"
+  },
+  "gallery": [
+   {
+    "gid": "1JgCEp5XssWETin2GxN0SAAiZAFQO-9fn"
+   },
+   {
+    "gid": "1GmIJrJyf1wB33kpDIgjBkb50Q8rNqO0c"
+   },
+   {
+    "gid": "1EMqIjQuixsYH5wh6UWlRbgEW0m_BJicA"
+   },
+   {
+    "gid": "1KOtOerLKi1pN6K_E2iiCN1caqMwOw7sD"
+   },
+   {
+    "gid": "17QYcG0K9rPCzZ-_9CxdjzQjYuVLt6Sql"
+   },
+   {
+    "gid": "1JIPLu5L1_MFcDa-EDRsQ_IOKAfR1vhjG"
+   },
+   {
+    "gid": "17RSoNcuInSzGgzGVHwu-zlyj4FPp3Vzj"
+   },
+   {
+    "gid": "1NBxLIzfFfZM1_a0gvRGX5id2nEbw7qRP"
+   },
+   {
+    "gid": "1eSGrOKnfWnhYrCQmu0p_Xo59JJuTluPS"
+   },
+   {
+    "gid": "1NzOg73UAVgXMrM8_FyN7M6qKG-YSfgj-"
+   },
+   {
+    "gid": "1szrVl3MelgH_IdQEA2ZWCHpGm3qGhCrN"
+   },
+   {
+    "gid": "15iLeAYvsrOGq3qCrSTWdOABq1Hlmxxgr"
+   }
+  ]
+ },
+ {
+  "id": "10233642",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "2018 · grise · 2 600 km · expertisée",
+  "price": 139900,
+  "badge": "2 600 km",
+  "saved": "2024-10-09",
+  "year": "2018",
+  "km": "2'600 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Grise",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "État quasi neuf : seulement 2 600 km, boîte manuelle, expertisée du jour.",
+  "desc": "PORSCHE 911 Carrera T — millésime 2018, carrosserie grise.\n\n2 600 km seulement, boîte manuelle 7 rapports, propulsion, véhicule expertisé. Pratiquement un état de collection.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "2 600 km (état neuf)",
+   "Expertisée",
+   "Propulsion"
+  ],
+  "img": {
+   "gid": "1PBcc7FajUaPDKN2LC4wYFhnYzP4c61aP"
+  },
+  "gallery": [
+   {
+    "gid": "1PBcc7FajUaPDKN2LC4wYFhnYzP4c61aP"
+   },
+   {
+    "gid": "1J_Me6pzf9wn5jW2GbeQBcnHneCx4szBx"
+   },
+   {
+    "gid": "1lIfalyxf8CBWw8UMAeFc1Z61ztztgpTc"
+   },
+   {
+    "gid": "1GZauluTcw3pBR6VZSno5qQBwpZA6WGvb"
+   },
+   {
+    "gid": "1_UfAQCLQdhNJjf9MPjYhL4eDSYCtTztF"
+   },
+   {
+    "gid": "1UQexnU95PSss6tHEvkh6WWQZRRJCd2Ku"
+   },
+   {
+    "gid": "1p5ozh1bLuVPRuRoDYnQK2NelLoS0LtqX"
+   },
+   {
+    "gid": "1x4HjSnjqtbXmeqLMLcETBurpA2EI1uQs"
+   },
+   {
+    "gid": "1GaPu4xqBlAyKTN8ffnRemk-Dx51d3s2B"
+   },
+   {
+    "gid": "1pA_zwuRaWyvuxmcJPhpoOTEhqleVeXGj"
+   },
+   {
+    "gid": "1L1afzZ3LXX56MVRaw_zVYMJqu5qj7lAR"
+   },
+   {
+    "gid": "14QHws5qRg5X0EMNWP-3Bzb90cFDuJO2G"
+   }
+  ]
+ },
+ {
+  "id": "11277974",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "2018 · 24 800 km · expertisée · garantie",
+  "price": 114800,
+  "badge": "Manuelle",
+  "saved": "2024-10-09",
+  "year": "2018",
+  "km": "24'800 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "—",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Carrera T 2018, 24 800 km, boîte manuelle, expertisée et avec garantie.",
+  "desc": "PORSCHE 911 Carrera T — 2018, 24 800 km.\n\nBoîte manuelle 7 rapports, propulsion, véhicule expertisé, vendu avec garantie.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Expertisée",
+   "Avec garantie",
+   "Propulsion"
+  ],
+  "img": {
+   "gid": "1t3dIEUcZqV9JJAay_MtChXLuWZz44GQ_"
+  },
+  "gallery": [
+   {
+    "gid": "1t3dIEUcZqV9JJAay_MtChXLuWZz44GQ_"
+   },
+   {
+    "gid": "1waWQCM2jXx7MuRzPYBKWPd3cfHOjX1O8"
+   },
+   {
+    "gid": "1rCj-SU_t0vFt-np9NLeyhqgyWh7vcDiu"
+   },
+   {
+    "gid": "1RLmh_NRuHgt1NnEFmn6kwN79UJSlsUU6"
+   },
+   {
+    "gid": "1L6cnt4gOqDPh1_u67qayO_1SvllKhSun"
+   },
+   {
+    "gid": "1OahfFrCdJOBVPy3g9xSGhhj6E7nHgezt"
+   },
+   {
+    "gid": "1db5Vv7yNHJO19-td3MfuiUl7Onz_tgeK"
+   },
+   {
+    "gid": "1ZdYSBjyJO0YlR4KRjPB0Kxg7vA1KME50"
+   },
+   {
+    "gid": "1rUWnlDLLZzRuxBT4edMwo4TXr1riRKa3"
+   },
+   {
+    "gid": "1JYZmgCwk3HeCokFE0FASQ9XWds3Fss6t"
+   },
+   {
+    "gid": "1pMCUxqok2W6UuafMBYP_uSyqx8FzJTrC"
+   },
+   {
+    "gid": "1fZd0cOUk20Ma0MvpDvPL56ipQu5ZblX-"
+   }
+  ]
+ },
+ {
+  "id": "12307026",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "2018 · jaune · 38 000 km · garantie",
+  "price": 109900,
+  "badge": "Manuelle",
+  "saved": "2025-04-02",
+  "year": "2018",
+  "km": "38'000 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Jaune",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Carrera T jaune, 2018, 38 000 km, boîte manuelle, avec garantie.",
+  "desc": "PORSCHE 911 Carrera T — peinture jaune, 2018, 38 000 km.\n\nBoîte manuelle 7 rapports, propulsion, vendue avec garantie.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Peinture jaune",
+   "Avec garantie",
+   "Propulsion"
+  ],
+  "img": {
+   "gid": "1N9RMtLYC7x8rR1Wj4cZvJlMn2iVaPsTJ"
+  },
+  "gallery": [
+   {
+    "gid": "1N9RMtLYC7x8rR1Wj4cZvJlMn2iVaPsTJ"
+   },
+   {
+    "gid": "1wMii5FaYAM66G9ff7750nCA4DRBrXWT7"
+   },
+   {
+    "gid": "1WdWKPG1MN-O6Insd2XqCqVMd7QLeLDO6"
+   },
+   {
+    "gid": "1-jOnUOZCfx3cNwsgIP9VVvpBg_8iSGOg"
+   },
+   {
+    "gid": "1A09SwmlNkkI1iqxV6OCOS2WJaRwHLQEQ"
+   },
+   {
+    "gid": "1arrWeQW4-ljMVzndpEKl9sU1aHPx4Pn9"
+   },
+   {
+    "gid": "1SEaOocVSYqXqPiAIBX8puZCji3GXVhv4"
+   },
+   {
+    "gid": "1RM0TIOcDOhgllNPvI9D-gLlVZYgKq_bR"
+   },
+   {
+    "gid": "1k_Vgyl6WAWkszAEb5sO_9ICN95SPWxVQ"
+   },
+   {
+    "gid": "1bDBOi9XlMdSJGRkMzwo7iFMN_h2kvddd"
+   },
+   {
+    "gid": "1Y1jb4lcPq9Cp78YBBbLlf12ORLOaytAX"
+   },
+   {
+    "gid": "1Il73k_9rlbJxo2h-YPNtx2jcCpQ1z4yG"
+   }
+  ]
+ },
+ {
+  "id": "9890800",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "2018 · jaune · 32 000 km · expertisée",
+  "price": 114911,
+  "badge": "Manuelle",
+  "saved": "2024-10-09",
+  "year": "2018",
+  "km": "32'000 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Jaune",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Carrera T jaune, 2018, 32 000 km, boîte manuelle, expertisée et avec garantie.",
+  "desc": "PORSCHE 911 Carrera T — peinture jaune, 2018, 32 000 km.\n\nBoîte manuelle 7 rapports, propulsion, expertisée, vendue avec garantie.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Peinture jaune",
+   "Expertisée",
+   "Avec garantie"
+  ],
+  "img": {
+   "gid": "1twANfs0CJZQaU8w6wtLJTMlWjroMEdXS"
+  },
+  "gallery": [
+   {
+    "gid": "1twANfs0CJZQaU8w6wtLJTMlWjroMEdXS"
+   },
+   {
+    "gid": "16hxA_wyqeGok2Z2VzoFjRxawWDwgFrSd"
+   },
+   {
+    "gid": "1dWwcfC-SCisPydzeQx29S05WCHWg0tqm"
+   },
+   {
+    "gid": "1rkTLSYRzm1jjzU4s-8_Q1qSFDUxlZJBm"
+   },
+   {
+    "gid": "1hjrT8l8aoIPhvHfsr_0VmTHTCzH8LBcI"
+   },
+   {
+    "gid": "1XK5nmp9PJrYK6MNLnKobFPPKCoKFUEIr"
+   },
+   {
+    "gid": "1oGw7gBNFZb4Cc-kR_LAgJlfv1LWypP6Z"
+   },
+   {
+    "gid": "1EIYbTnhBysZPmllmJgm4oB_hxLZJCOpo"
+   },
+   {
+    "gid": "1gD91l1uCA8ANpSysdOeAkXhDjHVLO53s"
+   },
+   {
+    "gid": "1ZCHeD0bc4uSmLqHYZBbfzjW_GAhS6I_l"
+   },
+   {
+    "gid": "1PhRRd6hU6exj_oRhpufrH-nz2jbG1P89"
+   },
+   {
+    "gid": "1H5stB2V6iwMplJlHY9iU-itwRLy9AgbD"
+   },
+   {
+    "gid": "1ENpfX-pkuB9VFZ2XoMjmjYwJPwsVVFAJ"
+   },
+   {
+    "gid": "1svjneqOlVlqtmo-zZhXG5hSsAmF_s4_t"
+   },
+   {
+    "gid": "1qFmhL6OlwS8tcPm2vYDDnOQdJucBMfRt"
+   },
+   {
+    "gid": "17ZgsdXtO12nQIVPKXEMRF5OcrX5_e9Ew"
+   }
+  ]
+ },
+ {
+  "id": "12123452",
+  "title": "PORSCHE 911 Coupé 3.0 Carrera T",
+  "variant": "2018 · 36 500 km · expertisée · garantie",
+  "price": 110000,
+  "badge": "Manuelle",
+  "saved": "2025-01-17",
+  "year": "2018",
+  "km": "36'500 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "—",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Coupé 3.0 Carrera T, 2018, 36 500 km, boîte manuelle, expertisée avec garantie.",
+  "desc": "PORSCHE 911 Coupé 3.0 Carrera T — 2018, 36 500 km.\n\nMoteur 3.0 L flat-six biturbo, boîte manuelle 7 rapports, propulsion, véhicule expertisé et garanti.",
+  "equip": [
+   "Moteur 3.0 L biturbo",
+   "Boîte manuelle 7 rapports",
+   "Expertisée",
+   "Avec garantie"
+  ],
+  "img": {
+   "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
+  },
+  "gallery": [
+   {
+    "gid": "13UmTzZ07h9XloYRgpVWV5r-FoFptlPXr"
+   },
+   {
+    "gid": "1vRNVUxr0E3HIjh74PWfiy8P4DcaYSx0a"
+   },
+   {
+    "gid": "1j7Y_BUgp5iHQLm3QG8puYQ5jUDYoTD2n"
+   },
+   {
+    "gid": "15FkmghvzybHOfcLYfDEOVyWMOD_zhep1"
+   },
+   {
+    "gid": "1NN8txgbXlq3owdGFfkUJ8otJ5hKF6NS_"
+   },
+   {
+    "gid": "1XSqAqOH7yMPHBcmQauCpKo0yEdcX7DdN"
+   },
+   {
+    "gid": "1mGc43gPM-vKs-ZIFwhpRlXL_BQ0rcTR_"
+   },
+   {
+    "gid": "1OyhMdQq_iI5ZgY4CbD957rouOWkxOiMH"
+   },
+   {
+    "gid": "1SVOzfOyKXfHyS57ZfNLoi39JH3sdHpZF"
+   },
+   {
+    "gid": "1vdvL7UXJ59D1dcM6wko5eEKfZsRj11D7"
+   },
+   {
+    "gid": "171ZSGS689lguDn3l0nJw08gQKe0pn0py"
+   },
+   {
+    "gid": "18-YfSB_a0prAiATNRm0xpbLM80wG2pb8"
+   }
+  ]
+ },
+ {
+  "id": "20278862",
+  "dupKey": "miami-blue",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "Boîte manuelle · Miami Blue",
+  "price": 128900,
+  "badge": "Manuelle",
+  "saved": "2026-03-10",
+  "year": "2018",
+  "km": "7'980 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Miami Blue",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Carrera T à boîte manuelle, peinture Miami Blue.",
+  "desc": "PORSCHE 911 Carrera T — boîte manuelle, peinture Miami Blue.\n\nLa configuration la plus puriste de la Carrera T : moteur flat-six biturbo, boîte mécanique 7 rapports et levier raccourci à grille rouge indien.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Peinture Miami Blue",
+   "Châssis sport PASM",
+   "Levier de vitesses raccourci"
+  ],
+  "img": {
+   "gid": "1y3BwU6COq47vpLlU4kggr0aHGySLtoLV"
+  },
+  "gallery": [
+   {
+    "gid": "1y3BwU6COq47vpLlU4kggr0aHGySLtoLV"
+   },
+   {
+    "gid": "1O0fANAruF_bpKF8X9w8nU1m4xNohysMA"
+   },
+   {
+    "gid": "1QQbqVmTD1g0jpkGCMpwZGxu5DRnPEAnb"
+   },
+   {
+    "gid": "1A5Cy0jJ5QuOs8umM4PqH-AZmrnJuOi37"
+   },
+   {
+    "gid": "1thmhtsxd_AIrD3LkWL1EOI-Czup_z5FQ"
+   },
+   {
+    "gid": "15uXV1Y-gHwYWehALT5Vzapch42SdPR8p"
+   },
+   {
+    "gid": "13olrX6bEymt6bEIy8SFbZllRtJvNflxv"
+   },
+   {
+    "gid": "1ZNyZa1KuRs399vd8iv72t5f-UvMk3pt1"
+   },
+   {
+    "gid": "1yZ1iUSCZV5YTFA5uxjaBEhGHuLWIL2QB"
+   },
+   {
+    "gid": "1re3LYvrEMr5Wc_vJw1B9PsgKaF1HCRI3"
+   },
+   {
+    "gid": "18NSk4nOnDIje8onAHvi2YdzGuJhuKwNX"
+   },
+   {
+    "gid": "1PhUzVB2SoALNMZjAEE6IsG4RP-eBp-vU"
+   }
+  ]
+ },
+ {
+  "id": "12744103",
+  "title": "PORSCHE 911 Carrera T PDK",
+  "variant": "Grise · freins céramique",
+  "price": 94900,
+  "badge": "PDK",
+  "saved": "2025-11-10",
+  "year": "2018",
+  "km": "60'500 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "PDK (boîte robotisée)",
+  "cons": null,
+  "color": "Grise",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Carrera T PDK, carrosserie grise, freins céramique.",
+  "desc": "PORSCHE 911 Carrera T PDK — carrosserie grise, freins céramique (PCCB).\n\nLa Carrera T en version boîte PDK : changements de rapport ultra-rapides, châssis sport PASM rabaissé et Porsche Torque Vectoring.",
+  "equip": [
+   "Boîte PDK",
+   "Freins céramique (PCCB)",
+   "Châssis sport PASM",
+   "Porsche Torque Vectoring (PTV)",
+   "Carrosserie grise"
+  ],
+  "img": {
+   "gid": "1NgxZCK3rpuTWSynqHmT0k9xQ34BA23IZ"
+  },
+  "gallery": [
+   {
+    "gid": "1NgxZCK3rpuTWSynqHmT0k9xQ34BA23IZ"
+   },
+   {
+    "gid": "1F__mtmVcablNNbFav9PnB2G993rJt1Jd"
+   },
+   {
+    "gid": "1mt7ioNB9R-HFSvkFJquCcwjtnMRPubOI"
+   },
+   {
+    "gid": "1vIJkykyC1j3Ly66pGFqTqYKYqGCGHQW_"
+   },
+   {
+    "gid": "16pA0ru_XoVhb9p2lRNnsMEcoFHDRcoC6"
+   },
+   {
+    "gid": "1rr4frZjKr3-Q0AFVVcPcZRD8qNIzIRyc"
+   },
+   {
+    "gid": "1Llnbq2ho0uPQ0TFxNZtxlfANaaOFibtU"
+   },
+   {
+    "gid": "15yLYSAgYDqu79b7DnMPZ50w6NkMP4_vk"
+   },
+   {
+    "gid": "1I3AixR4s_DJI0z62PJ_X43pHHs5gPhTs"
+   },
+   {
+    "gid": "1aFV34CXBGK74CzdSLvIgrTqsaci7PVsN"
+   },
+   {
+    "gid": "1_ahJa0sZUv6SeckmFh4NDqmEAGTD1BtT"
+   },
+   {
+    "gid": "1ESC2eaD4jjafTy-6vrUP1f-o1m_DkZqa"
+   },
+   {
+    "gid": "17CypTlveLxKfOLjc8kyDrmNCHEsKocGy"
+   }
+  ]
+ },
+ {
+  "id": "12806339",
+  "title": "PORSCHE 911 Carrera T",
+  "variant": "Blanche · bande rouge · galerie complète",
+  "price": 95992,
+  "badge": "Manuelle",
+  "saved": "2025-10-03",
+  "year": "2018",
+  "km": "35'000 km",
+  "power": "370 ch (272 kW)",
+  "fuel": "Essence",
+  "trans": "Manuelle 7 rapports",
+  "cons": null,
+  "color": "Blanche / bande rouge",
+  "bodytype": "Coupé",
+  "seller": "Vendeur",
+  "place": "Suisse",
+  "short": "911 Carrera T blanche avec bande rouge — look « heritage », galerie complète.",
+  "desc": "PORSCHE 911 Carrera T — carrosserie blanche soulignée d'une bande rouge.\n\nConfiguration « heritage » la plus emblématique de la Carrera T : moteur flat-six biturbo, boîte manuelle 7 rapports.",
+  "equip": [
+   "Boîte manuelle 7 rapports",
+   "Peinture blanche, bande rouge",
+   "Châssis sport PASM",
+   "Galerie photos complète"
+  ],
+  "img": {
+   "gid": "1EXugLspn99VENrRWRPH88WpyYJYC0et5"
+  },
+  "gallery": [
+   {
+    "gid": "1EXugLspn99VENrRWRPH88WpyYJYC0et5"
+   },
+   {
+    "gid": "13FWMyTLwEP_f8Vgk7OyyU__8a7kbsL8V"
+   },
+   {
+    "gid": "1fR-q9ehLZ8_hSPkdOZnbHslmmix2rR2-"
+   },
+   {
+    "gid": "1ItSFeDI7W-M5wl9Y_UjdmPUA1Ue4RCyH"
+   },
+   {
+    "gid": "1m4ONRq7xQbXBX7gj8_ZtWgVw9rVfoMsK"
+   },
+   {
+    "gid": "1u3HYVC6LgqZaoL54m951gKIH_y-u0eXv"
+   },
+   {
+    "gid": "1zr_jGWs5uGBCoYiDl5tyx9cYcek3mZHC"
+   },
+   {
+    "gid": "1S6t4t0d3gzMNzipMXtWqA0lijKGe80uq"
+   },
+   {
+    "gid": "1QI-577SzQ1GY52BOFnkXFuO-qN4V8kOe"
+   },
+   {
+    "gid": "1zTsBn0B2iI-KfFo7qZI3IaCa6CMgzRBP"
+   },
+   {
+    "gid": "1Sax2MttwL9P12K4_6hrCiwLUsjl_2IbW"
+   },
+   {
+    "gid": "1Udxf7pdhvXMjv1iGwe2_DMneJRXSQwro"
+   }
+  ]
+ }
+]
+</script>
+<script>
+/* ---------- ICONS ---------- */
+const I = {
+  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+  fuel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22h12V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M15 8h2a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2 2 2 0 0 0 2-2V9.5L18 6"/><path d="M6 6h6"/></svg>',
+  road:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22 8 2M20 22 16 2M12 6v2M12 12v2M12 18v2"/></svg>',
+  power:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>',
+  trans:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M6 8.4v7.2M18 8.4V13a3 3 0 0 1-3 3H6"/></svg>',
+  cons:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10z"/></svg>',
+  color:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18c1.7 0 2-1.3 1-2.3-.8-.8-.3-2 .8-2h1.7a3.5 3.5 0 0 0 3.5-3.5C20 7 16.4 3 12 3z"/></svg>',
+  body:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-5h11l3 3h2a1 1 0 0 1 1 1v3h-3M6 13H3v3h2"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></svg>',
+  chevL:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg>',
+  chevR:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg>',
+  cam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>',
+  copies:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>'
+};
+function dupsOf(c){ const k=c.dupKey||c.listing; return k ? CARS.filter(x=>(x.dupKey||x.listing)===k) : [c]; }
+
+/* ---------- IMAGE URL HELPER (autoscout24 CDN, with format fallback) ---------- */
+function pfx(listingId){ return String(parseInt(listingId,10)%1000); } // CDN folder = id % 1000
+function imgUrl(listingId, imageId, ext, w){
+  return `https://listing-images.autoscout24.ch/${pfx(listingId)}/${listingId}/${imageId}.${ext}?w=${w||1024}&q=90`;
+}
+// image source: Drive file (gid) if present, else AutoScout24 CDN
+function srcOf(im, id, w){
+  return im.gid ? `https://drive.google.com/thumbnail?id=${im.gid}&sz=w${w||1024}` : imgUrl(id, im.id, im.ext, w);
+}
+function onerrAttr(im, id){
+  return im.gid ? `onerror="driveFallback(this,'${im.gid}')"` : `onerror="imgFallback(this,'${id}','${im.id}','${im.ext}')"`;
+}
+const PLACEHOLDER='data:image/svg+xml;utf8,'+encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1e22"/><stop offset="1" stop-color="#34373d"/></linearGradient></defs><rect width="800" height="600" fill="url(%23g)"/><text x="50%" y="48%" fill="%23f5f200" font-family="Arial" font-size="46" font-weight="bold" text-anchor="middle">PORSCHE</text><text x="50%" y="57%" fill="%23ffffff" font-family="Arial" font-size="26" text-anchor="middle" opacity="0.8">911 Carrera T</text></svg>`);
+function imgFallback(el, listingId, imageId, ext){
+  if(!el.dataset.try){ el.dataset.try='1';
+    el.src=`https://listing-images.autoscout24.ch/listing/${pfx(listingId)}/${listingId}/${imageId}.${ext}?w=1024&q=90`;
+  } else { el.onerror=null; el.src=PLACEHOLDER; }
+}
+function driveFallback(el, gid){
+  if(el.dataset.t2!=='1'){ el.dataset.t2='1'; el.src=`https://lh3.googleusercontent.com/d/${gid}=w1024`; }
+  else { el.onerror=null; el.src=PLACEHOLDER; }
+}
+
+/* ---------- DATA (source : bloc JSON ci-dessus = fichier 911-carrera-t-data.json) ---------- */
+const CARS = JSON.parse(document.getElementById('cars-data').textContent);
+const SAVED = {}; CARS.forEach(c => { SAVED[c.id] = c.saved || null; });
+const MOIS=['janv.','f\u00e9vr.','mars','avr.','mai','juin','juil.','ao\u00fbt','sept.','oct.','nov.','d\u00e9c.'];
+function fmtDate(id){ const d=SAVED[id]; if(!d) return null; const [y,m,j]=d.split('-'); return parseInt(j)+' '+MOIS[parseInt(m)-1]+' '+y; }
+
+const MODEL_NOTE = `La 911 Carrera T (« T » pour Touring) reprend l'esprit de la 911 T de 1967 : « moins, c'est plus ». Moteur 6 cylindres à plat biturbo 3.0 L de 370 ch, boîte manuelle 7 rapports (ou PDK), 0 à 100 km/h en 4,5 s. Allègement : isolation réduite, lunette et vitres latérales arrière en verre léger, sièges arrière supprimés. Châssis sport PASM rabaissé de 20 mm, Porsche Torque Vectoring, jantes Carrera S 20" couleur Titane, échappement sport à double sortie centrale.`;
+
+const fmtPrice = p => p ? "CHF " + p.toLocaleString('fr-CH').replace(/ |,/g,"'") + ".–" : "Prix sur demande";
+
+/* ---------- RENDER LIST ---------- */
+function specRow(c){
+  const items=[];
+  if(c.year) items.push([I.cal,c.year]);
+  if(c.fuel) items.push([I.fuel,c.fuel]);
+  if(c.km) items.push([I.road,c.km]);
+  if(c.power) items.push([I.power,c.power]);
+  if(c.trans) items.push([I.trans,c.trans]);
+  if(c.cons) items.push([I.cons,c.cons]);
+  return items.map(([ic,v])=>`<div class="spec">${ic}<span>${v}</span></div>`).join('');
+}
+function cardImg(c,w){
+  if(!c.img) return `<img src="${PLACEHOLDER}" alt="${c.title}">`;
+  const n=(c.gallery?c.gallery.length:1);
+  return `<span class="imgcount">${I.cam}${n}</span>
+      <img src="${srcOf(c.img,c.id,w)}" alt="${c.title}" loading="lazy" ${onerrAttr(c.img,c.id)}>`;
+}
+function cardHTML(c){
+  return `<article class="card" onclick="openCar('${c.id}')">
+    <div class="ph">
+      <span class="badge ${c.badgeTop?'top':''}">${c.badge||'911'}</span>
+      ${fmtDate(c.id)?`<span class="datechip">${I.cal}<b>${fmtDate(c.id)}</b></span>`:''}
+      ${cardImg(c,700)}
+    </div>
+    <div class="body">
+      <div class="title">${c.title}</div>
+      <div class="desc">${c.short}</div>
+      <div class="price">${fmtPrice(c.price)}</div>
+      <div class="specs">${specRow(c)}</div>
+      ${dupsOf(c).length>1?`<span class="dupflag">${I.copies} Vue ${dupsOf(c).length} fois dans la collection</span>`:''}
+      <div class="seller">${c.seller}<span class="dot"></span>${c.place}</div>
+    </div>
+  </article>`;
+}
+function renderList(){
+  let arr=[...CARS];
+  const s=document.getElementById('sort').value;
+  if(s==='price-asc') arr.sort((a,b)=>(a.price||1e9)-(b.price||1e9));
+  if(s==='price-desc') arr.sort((a,b)=>(b.price||0)-(a.price||0));
+  if(s==='date-desc') arr.sort((a,b)=>(SAVED[b.id]||'0').localeCompare(SAVED[a.id]||'0'));
+  if(s==='date-asc') arr.sort((a,b)=>(SAVED[a.id]||'9').localeCompare(SAVED[b.id]||'9'));
+  document.getElementById('list').innerHTML=arr.map(cardHTML).join('');
+  document.getElementById('count').textContent=CARS.length+' annonces';
+}
+
+/* ---------- RENDER DETAIL ---------- */
+let gIndex=0, gImgs=[], gCar=null;
+function keyItem(ic,k,v){return v?`<div class="keyitem">${ic}<div><div class="k">${k}</div><div class="v">${v}</div></div></div>`:'';}
+function gShow(i){
+  if(!gCar||!gImgs.length) return;
+  gIndex=(i+gImgs.length)%gImgs.length;
+  const im=gImgs[gIndex];
+  const main=document.getElementById('gmain');
+  main.dataset.try=''; main.dataset.t2='';
+  main.onerror=function(){ im.gid?driveFallback(this,im.gid):imgFallback(this,gCar.id,im.id,im.ext); };
+  main.src=srcOf(im,gCar.id,1280);
+  document.getElementById('gcount').textContent=(gIndex+1)+' / '+gImgs.length;
+  document.querySelectorAll('.thumbs img').forEach((t,k)=>t.classList.toggle('active',k===gIndex));
+}
+function gPrev(){gShow(gIndex-1)} function gNext(){gShow(gIndex+1)}
+function renderDetail(c){
+  gCar=c; gImgs=c.gallery||(c.img?[c.img]:[]); gIndex=0;
+  const equip=c.equip.map(e=>`<li>${e}</li>`).join('');
+  const grp=dupsOf(c), others=grp.filter(x=>x.id!==c.id);
+  const dupHTML = grp.length>1 ? `<div class="dupbox"><h2>${I.copies} Cette voiture apparaît ${grp.length} fois dans la collection</h2><p>Même annonce AutoScout24 (réf. ${c.listing}) enregistrée plusieurs fois. Autres occurrences :</p>${others.map(o=>`<button class="duplink" onclick="openCar('${o.id}')"><img src="${srcOf(o.img,o.id,170)}" ${onerrAttr(o.img,o.id)}><div><div class="t">${o.title} — ${o.seller}</div><div class="s">${o.place} · enregistrée le ${fmtDate(o.id)||'—'} · ${(o.gallery||[o.img]).filter(Boolean).length} photos</div></div><span class="go">${I.chevR}</span></button>`).join('')}</div>` : '';
+  let galleryHTML;
+  if(!gImgs.length){
+    galleryHTML=`<div class="gallery"><div class="main"><img src="${PLACEHOLDER}" alt="${c.title}"></div></div>`;
+  } else {
+    const multi=gImgs.length>1;
+    const thumbs=multi?`<div class="thumbs">${gImgs.map((im,k)=>`<img class="${k===0?'active':''}" src="${srcOf(im,c.id,170)}" onclick="gShow(${k})" ${onerrAttr(im,c.id)}>`).join('')}</div>`:'';
+    galleryHTML=`<div class="gallery">
+        <div class="main">
+          <img id="gmain" src="${srcOf(gImgs[0],c.id,1280)}" alt="${c.title}" ${onerrAttr(gImgs[0],c.id)}>
+          ${multi?`<button class="gnav prev" onclick="gPrev()">${I.chevL}</button><button class="gnav next" onclick="gNext()">${I.chevR}</button>`:''}
+          <div class="gcount" id="gcount">1 / ${gImgs.length}</div>
+        </div>
+        ${thumbs}
+      </div>`;
+  }
+  document.getElementById('detail').innerHTML=`
+   <div class="back" onclick="goHome()">${I.chevL} Retour aux annonces</div>
+   <div class="dgrid">
+     <div>${galleryHTML}</div>
+     <aside>
+       <div class="dtitle">${c.title}</div>
+       <div class="dsub">${c.variant||''}</div>
+       ${fmtDate(c.id)?`<div class="ddate">${I.cal}<span>Annonce enregistrée le</span>&nbsp;${fmtDate(c.id)}</div>`:''}
+       <div class="panel pricebox" style="margin-top:18px">
+         <div class="big">${fmtPrice(c.price)}</div>
+         <div class="lease">Comparer les offres de financement · assurances</div>
+         <button class="btn primary">Contacter le vendeur</button>
+         <button class="btn ghost">Demander un essai</button>
+         <div class="sellercard">
+           <div class="nm">${c.seller}</div>
+           <div class="addr">${c.place}</div>
+           <span class="tag">Annonce enregistrée</span>
+         </div>
+       </div>
+     </aside>
+   </div>
+
+   ${dupHTML}
+   <div class="section">
+     <h2>Caractéristiques principales</h2>
+     <div class="keygrid">
+       ${keyItem(I.cal,'Mise en circulation',c.year||'—')}
+       ${keyItem(I.road,'Kilométrage',c.km||'—')}
+       ${keyItem(I.power,'Puissance',c.power)}
+       ${keyItem(I.trans,'Transmission',c.trans)}
+       ${keyItem(I.fuel,'Carburant',c.fuel)}
+       ${keyItem(I.cons,'Consommation',c.cons||'—')}
+       ${keyItem(I.color,'Couleur',c.color||'—')}
+       ${keyItem(I.body,'Carrosserie',c.bodytype||'Coupé')}
+     </div>
+   </div>
+
+   <div class="section">
+     <h2>Équipements &amp; options</h2>
+     <ul class="equip">${equip}</ul>
+   </div>
+
+   <div class="section">
+     <h2>Description du vendeur</h2>
+     <div class="desc-txt">${c.desc}</div>
+   </div>
+
+   <div class="section">
+     <h2>À propos de la 911 Carrera T</h2>
+     <div class="modelnote">${MODEL_NOTE}</div>
+   </div>`;
+}
+
+/* ---------- ROUTING ---------- */
+function openCar(id){ location.hash='#/car/'+id; }
+function goHome(){ location.hash=''; }
+function route(){
+  const m=location.hash.match(/#\/car\/(.+)/);
+  if(m){
+    const c=CARS.find(x=>x.id===m[1]);
+    if(c){ renderDetail(c); document.body.classList.add('detail'); window.scrollTo(0,0); return; }
+  }
+  document.body.classList.remove('detail');
+}
+window.addEventListener('hashchange',route);
+renderList(); route();
+</script>
+</body>
+</html>
