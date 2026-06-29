@@ -1113,7 +1113,7 @@ function imgUrl(listingId, imageId, ext, w){
 }
 // image source: Drive file (gid) if present, else AutoScout24 CDN
 function srcOf(im, id, w){
-  return im.gid ? `https://drive.google.com/thumbnail?id=${im.gid}&sz=w${w||1024}` : imgUrl(id, im.id, im.ext, w);
+  return im.gid ? `images/${im.gid}.jpg` : imgUrl(id, im.id, im.ext, w);
 }
 function onerrAttr(im, id){
   return im.gid ? `onerror="driveFallback(this,'${im.gid}')"` : `onerror="imgFallback(this,'${id}','${im.id}','${im.ext}')"`;
