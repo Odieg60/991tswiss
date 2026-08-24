@@ -172,7 +172,7 @@
   "dupKey": "miami-blue",
   "title": "PORSCHE 911 Carrera T",
   "variant": "991.2 · Miami Blue · pièce unique en Suisse",
-  "price": 100000,
+  "price": 135000,
   "badge": "Manuelle",
   "saved": "2025-08-12",
   "year": null,
@@ -225,7 +225,7 @@
   "dupKey": "miami-blue",
   "title": "PORSCHE 911 Carrera T",
   "variant": "991.2 · Miami Blue · enregistrement du 29 juin",
-  "price": 100000,
+  "price": 109991,
   "badge": "Manuelle",
   "saved": "2026-06-29",
   "year": null,
@@ -1273,7 +1273,7 @@ function renderDetail(c){
   gCar=c; gImgs=c.gallery||(c.img?[c.img]:[]); gIndex=0;
   const equip=c.equip.map(e=>`<li>${e}</li>`).join('');
   const grp=dupsOf(c), others=grp.filter(x=>x.id!==c.id);
-  const dupHTML = grp.length>1 ? `<div class="dupbox"><h2>${I.copies} Cette voiture apparaît ${grp.length} fois dans la collection</h2><p>Même annonce AutoScout24 (réf. ${c.listing||c.id}) enregistrée plusieurs fois. Autres occurrences :</p>${others.map(o=>`<button class="duplink" onclick="openCar('${o.id}')"><img src="${srcOf(o.img,o.id,170)}" ${onerrAttr(o.img,o.id)}><div><div class="t">${o.title} — ${o.seller}</div><div class="s">${o.place} · enregistrée le ${fmtDate(o.id)||'—'} · ${(o.gallery||[o.img]).filter(Boolean).length} photos</div></div><span class="go">${I.chevR}</span></button>`).join('')}</div>` : '';
+  const dupHTML = grp.length>1 ? `<div class="dupbox"><h2>${I.copies} Cette voiture apparaît ${grp.length} fois dans la collection</h2><p>Même annonce AutoScout24 (réf. ${c.listing||c.id}) enregistrée plusieurs fois. Autres occurrences :</p>${others.slice().sort((a,b)=>(SAVED[a.id]||'').localeCompare(SAVED[b.id]||'')).map(o=>`<button class="duplink" onclick="openCar('${o.id}')"><img src="${srcOf(o.img,o.id,170)}" ${onerrAttr(o.img,o.id)}><div><div class="t">${fmtDate(o.id)||'—'} — ${fmtPrice(o.price)}</div><div class="s">${o.seller} · ${o.place} · ${(o.gallery||[o.img]).filter(Boolean).length} photos</div></div><span class="go">${I.chevR}</span></button>`).join('')}</div>` : '';
   let galleryHTML;
   if(!gImgs.length){
     galleryHTML=`<div class="gallery"><div class="main"><img src="${PLACEHOLDER}" alt="${c.title}"></div></div>`;
