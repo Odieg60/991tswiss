@@ -1250,7 +1250,8 @@ function renderList(){
   if(s==='date-desc') arr.sort((a,b)=>(SAVED[b.id]||'0').localeCompare(SAVED[a.id]||'0'));
   if(s==='date-asc') arr.sort((a,b)=>(SAVED[a.id]||'9').localeCompare(SAVED[b.id]||'9'));
   document.getElementById('list').innerHTML=arr.map(cardHTML).join('');
-  document.getElementById('count').textContent=CARS.length+' annonces';
+  const uniq=new Set(CARS.map(c=>c.dupKey||c.listing||c.id)).size;
+  document.getElementById('count').textContent=CARS.length+' annonces · '+uniq+' voitures uniques';
 }
 
 /* ---------- RENDER DETAIL ---------- */
