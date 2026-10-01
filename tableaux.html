@@ -3,91 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Carrera T 991.2 en Suisse</title>
+<title>Porsche 911 Carrera T (991.2) en Suisse</title>
 <style>
 :root{
   --bg:#f6f6f4; --panel:#ffffff; --ink:#1c1d20; --muted:#6a6d73; --line:#dcdde0;
-  --accent:#b3162a; --accent-ink:#ffffff; --chip:#eeeeec; --chip-on:#1c1d20; --chip-on-ink:#ffffff;
-  --row-alt:#fafaf9; --hover:#f0efec;
+  --accent:#b3162a; --chip:#eeeeec; --chip-on:#1c1d20; --chip-on-ink:#ffffff;
+  --row-alt:#fafaf9; --hover:#f0efec; --mine:#dff5dc; --inc:#fff3e0; --occ:#eef5ff; --gone:#9a9da3;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#141516; --panel:#1d1e20; --ink:#ececea; --muted:#9a9da3; --line:#34363a;
-    --accent:#e0475a; --accent-ink:#141516; --chip:#2a2b2e; --chip-on:#ececea; --chip-on-ink:#141516;
-    --row-alt:#202123; --hover:#2a2b2e;
+    --accent:#e0475a; --chip:#2a2b2e; --chip-on:#ececea; --chip-on-ink:#141516;
+    --row-alt:#202123; --hover:#2a2b2e; --mine:#1f3a22; --inc:#3a2f1c; --occ:#1b2433; --gone:#7b7e84;
   }
 }
 :root[data-theme="dark"]{
   --bg:#141516; --panel:#1d1e20; --ink:#ececea; --muted:#9a9da3; --line:#34363a;
-  --accent:#e0475a; --accent-ink:#141516; --chip:#2a2b2e; --chip-on:#ececea; --chip-on-ink:#141516;
-  --row-alt:#202123; --hover:#2a2b2e;
+  --accent:#e0475a; --chip:#2a2b2e; --chip-on:#ececea; --chip-on-ink:#141516;
+  --row-alt:#202123; --hover:#2a2b2e; --mine:#1f3a22; --inc:#3a2f1c; --occ:#1b2433; --gone:#7b7e84;
 }
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif}
-header{padding:22px 24px 8px;max-width:1500px;margin:0 auto}
+header{padding:22px 24px 8px;max-width:1600px;margin:0 auto}
 h1{margin:0;font-size:24px;font-weight:650;letter-spacing:-.01em}
-header p{margin:4px 0 0;color:var(--muted);max-width:70ch}
-.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:20px;padding:16px 24px 40px;max-width:1500px;margin:0 auto;align-items:start}
-aside{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 16px 16px;position:sticky;top:calc(12px + env(safe-area-inset-top,0px));max-height:calc(100vh - 24px);overflow:auto}
-fieldset{border:0;border-top:1px solid var(--line);margin:0;padding:14px 0 4px}
-fieldset:first-of-type{border-top:0}
-legend{padding:0;font-weight:600;font-size:14px;float:left;width:100%;margin-bottom:8px}
-.group{clear:both;display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;background:var(--chip);color:var(--ink);padding:5px 10px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer}
+header p{margin:4px 0 0;color:var(--muted);max-width:80ch}
+.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px;padding:16px 24px 40px;max-width:1600px;margin:0 auto;align-items:start}
+aside{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:4px 16px 12px;position:sticky;top:calc(12px + env(safe-area-inset-top,0px));max-height:calc(100vh - 24px);overflow:auto}
+details{border-top:1px solid var(--line);padding:2px 0}
+details:first-child{border-top:0}
+summary{cursor:pointer;font-weight:600;font-size:14px;padding:11px 0;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";color:var(--muted);font-size:11px;width:10px;transition:transform .12s}
+details[open]>summary::before{transform:rotate(90deg)}
+summary .badge{background:var(--accent);color:#fff;border-radius:999px;font-size:11px;font-weight:600;padding:1px 7px;display:none}
+summary .badge.on{display:inline-block}
+.body{padding:0 0 12px}
+.group{display:flex;flex-wrap:wrap;gap:6px}
+.group.scroll{max-height:190px;overflow:auto;padding-right:4px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;background:var(--chip);color:var(--ink);padding:5px 10px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer;text-align:left}
 .chip:hover{border-color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-ink)}
 .chip .n{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
 .chip[aria-pressed="true"] .n{color:inherit;opacity:.7}
 .chip.zero:not([aria-pressed="true"]){opacity:.38}
-.chip:focus-visible,button:focus-visible,input:focus-visible,th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.sw{width:11px;height:11px;border-radius:50%;border:1px solid rgba(128,128,128,.55);flex:none}
-.range{clear:both;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sw{width:11px;height:11px;border-radius:50%;border:1px solid rgba(128,128,128,.55);flex:none;display:inline-block}
+.range{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .range label{font-size:12px;color:var(--muted);display:grid;gap:3px}
 input[type=month],input[type=number],input[type=search]{font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
-.hint{clear:both;font-size:12px;color:var(--muted);margin:6px 0 0}
-.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:10px}
+.hint{font-size:12px;color:var(--muted);margin:6px 0 0}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-bottom:10px}
 .bar .count{font-weight:600}
 .bar .count small{font-weight:400;color:var(--muted)}
-.bar input[type=search]{max-width:260px;margin-left:auto}
-.reset{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 12px;border-radius:6px;cursor:pointer}
-.reset:hover{border-color:var(--accent);color:var(--accent)}
-.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
-table{border-collapse:collapse;width:100%;min-width:1000px}
-th,td{padding:9px 12px;text-align:left;white-space:nowrap}
-thead th{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);padding:0}
+.bar input[type=search]{max-width:300px;margin-left:auto}
+.btn{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 12px;border-radius:6px;cursor:pointer}
+.btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.tablewrap{overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px;max-height:calc(100vh - 200px)}
+table{border-collapse:collapse;width:100%;min-width:1500px}
+th,td{padding:8px 12px;text-align:left;white-space:nowrap}
+thead th{position:sticky;top:0;z-index:1;background:var(--panel);border-bottom:1px solid var(--line);padding:0}
 th button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;width:100%;padding:10px 12px;cursor:pointer;font-weight:600;font-size:13px}
 th button:hover{background:var(--hover)}
 th .arr{color:var(--accent);font-size:11px;min-width:10px}
-tbody tr:nth-child(even){background:var(--row-alt)}
-tbody tr:hover{background:var(--hover)}
+tbody tr.r{cursor:pointer;border-left:3px solid transparent}
+tbody tr.r.occ{background:var(--occ)}
+tbody tr.r.gone td{color:var(--gone)}
+tbody tr.r.inc{background:var(--inc);border-left:3px dashed var(--muted)}
+tbody tr.r.mine{background:var(--mine);border-left:3px solid #2f8f3a}
+tbody tr.r:hover{filter:brightness(.97)}
 td.num,th.num button{font-variant-numeric:tabular-nums}
 td.id{color:var(--muted)}
-.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:var(--chip)}
-.tag.neuve{background:transparent;border:1px solid var(--line)}
-.tag.occ{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
-.tag.yes{background:transparent;border:1px solid var(--line)}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:var(--chip);color:var(--ink)}
+.tag.mine{background:#2f8f3a;color:#fff;margin-left:6px}
 .tag.no{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
-.tag.inc{border:1px dashed var(--muted);background:transparent;color:var(--muted)}
+.tag.yes{background:transparent;border:1px solid var(--line)}
 .dash{color:var(--muted)}
+.path{display:inline-flex;align-items:center;gap:5px}
+.path .arrow{color:var(--muted)}
+.path .c{font-weight:600}
+.path .d{color:var(--muted);font-size:12px}
+.path .q{color:#b9770e}
+tr.detail td{white-space:normal;background:var(--hover);padding:14px 16px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px 24px;font-size:13px;margin-bottom:12px}
+.dl div span{display:block;color:var(--muted);font-size:12px}
+.tl{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:6px}
+.tl div{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 6px;text-align:center;font-size:13px}
+.tl div small{display:block;color:var(--muted);font-size:11px}
+.tl div.chg{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.tl div.abs{color:var(--muted);background:repeating-linear-gradient(135deg,transparent 0 5px,color-mix(in srgb,var(--muted) 18%,transparent) 5px 6px)}
+.tl div.pre{color:var(--muted);opacity:.55;border-style:dashed}
+.tl div.unc{border-color:#b9770e}
+.tlnote{font-size:12px;color:var(--muted);margin:8px 0 0}
 .empty{padding:40px 20px;text-align:center;color:var(--muted)}
 .empty strong{display:block;color:var(--ink);margin-bottom:4px}
-.foot{margin-top:10px;font-size:12px;color:var(--muted)}
-.mobile-toggle{display:none}
-@media (max-width:880px){
+.foot{margin-top:10px;font-size:12px;color:var(--muted);max-width:100ch}
+.foot p{margin:4px 0}
+.leg{display:inline-flex;align-items:center;gap:5px;margin-right:12px}
+.leg i{width:12px;height:12px;border-radius:3px;border:1px solid var(--line);display:inline-block}
+@media (max-width:900px){
   .layout{grid-template-columns:1fr;padding:12px 14px 32px}
   header{padding:18px 14px 4px}
   aside{position:static;max-height:none;overflow:visible}
   .bar input[type=search]{max-width:none;margin-left:0;flex:1 1 100%}
+  .tablewrap{max-height:none}
 }
 </style>
 </head>
 <body>
 <header>
   <h1>Porsche 911 Carrera T (991.2) en Suisse</h1>
-  <p><span id="total"></span> exemplaires recensés. Les filtres se combinent : plusieurs valeurs dans un même critère s'additionnent, les critères différents se restreignent entre eux.</p>
+  <p id="sub"></p>
 </header>
 
 <div class="layout">
@@ -96,8 +125,9 @@ td.id{color:var(--muted)}
   <main>
     <div class="bar">
       <div class="count" id="count" aria-live="polite"></div>
-      <button class="reset" id="reset" type="button">Réinitialiser les filtres</button>
-      <input type="search" id="q" placeholder="Rechercher (n°, couleur, canton…)" aria-label="Recherche libre">
+      <button class="btn" id="reset" type="button">Réinitialiser les filtres</button>
+      <button class="btn" id="export" type="button">Exporter en CSV</button>
+      <input type="search" id="q" placeholder="Rechercher (n°, canton, couleur…)" aria-label="Recherche libre">
     </div>
     <div class="tablewrap">
       <table>
@@ -106,229 +136,294 @@ td.id{color:var(--muted)}
       </table>
       <div class="empty" id="empty" hidden><strong>Aucune voiture ne correspond.</strong>Élargissez un filtre ou réinitialisez.</div>
     </div>
-    <p class="foot">* Poids non communiqué pour les voitures neuves : valeur indicative de 1 500 kg.<br>Canton actuel : « – » = voiture qui n'est plus immatriculée, « ? » = canton inconnu.</p>
+    <div class="foot">
+      <p>Cliquez sur une ligne pour voir le parcours détaillé, relevé par relevé.</p>
+      <p>
+        <span class="leg"><i style="background:var(--mine)"></i>ma voiture</span>
+        <span class="leg"><i style="background:var(--panel)"></i>neuve (importateur CH)</span>
+        <span class="leg"><i style="background:var(--occ)"></i>import d'occasion</span>
+        <span class="leg"><i style="background:var(--panel)"></i><span class="dash">texte grisé : plus immatriculée</span></span>
+        <span class="leg"><i style="background:var(--inc)"></i>cas non tranché (hors total)</span>
+      </p>
+      <p>Parcours : l'année est celle du premier relevé où le nouveau canton apparaît (relevés tous les 6 mois ; juillet 2023 et juillet 2025 manquants). L'attribution est déduite, sans identifiant de véhicule.</p>
+      <p>Poids 1500* : poids d'homologation commun à toutes les voitures neuves.</p>
+    </div>
   </main>
 </div>
 
 <script>
-const DATA = [{"n": 1, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "Manuelle", "immat": "02/2018", "immatKey": 24217, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GE", "encore": "Oui", "cantonA": "GE", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 2, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "PDK", "immat": "03/2018", "immatKey": 24218, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BL", "encore": "Oui", "cantonA": "AG", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 3, "statut": "Neuve (importateur CH)", "couleur": "Blanc", "boite": "PDK", "immat": "03/2018", "immatKey": 24218, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BL", "encore": "Oui", "cantonA": "FR", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 4, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "Manuelle", "immat": "03/2018", "immatKey": 24218, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GR", "encore": "Oui", "cantonA": "GR", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 5, "statut": "Neuve (importateur CH)", "couleur": "Blanc", "boite": "PDK", "immat": "03/2018", "immatKey": 24218, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "AG", "encore": "Oui", "cantonA": "BE", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 6, "statut": "Neuve (importateur CH)", "couleur": "Blanc", "boite": "PDK", "immat": "03/2018", "immatKey": 24218, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZG", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1500, "poidsEst": true}, {"n": 7, "statut": "Neuve (importateur CH)", "couleur": "Bleu", "boite": "Manuelle", "immat": "03/2018", "immatKey": 24218, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "VD", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1500, "poidsEst": true}, {"n": 8, "statut": "Neuve (importateur CH)", "couleur": "Blanc", "boite": "PDK", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "SG", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1500, "poidsEst": true}, {"n": 9, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "Manuelle", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZH", "encore": "Oui", "cantonA": "ZH", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 10, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "Manuelle", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BL", "encore": "Oui", "cantonA": "VD", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 11, "statut": "Neuve (importateur CH)", "couleur": "Rouge", "boite": "Manuelle", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GE", "encore": "Oui", "cantonA": "GE", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 12, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "Manuelle", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GE", "encore": "Oui", "cantonA": "GE", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 13, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "PDK", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZG", "encore": "Oui", "cantonA": "SZ", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 14, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "PDK", "immat": "04/2018", "immatKey": 24219, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "VS", "encore": "Oui", "cantonA": "VS", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 15, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "PDK", "immat": "05/2018", "immatKey": 24220, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZG", "encore": "Oui", "cantonA": "ZG", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 16, "statut": "Neuve (importateur CH)", "couleur": "Noir", "boite": "PDK", "immat": "05/2018", "immatKey": 24220, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "JU", "encore": "Oui", "cantonA": "GE", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 17, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "Manuelle", "immat": "05/2018", "immatKey": 24220, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "VD", "encore": "Oui", "cantonA": "VD", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 18, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "Manuelle", "immat": "05/2018", "immatKey": 24220, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "SZ", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1500, "poidsEst": true}, {"n": 19, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "PDK", "immat": "05/2018", "immatKey": 24220, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "VD", "encore": "Oui", "cantonA": "VD", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 20, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "PDK", "immat": "05/2018", "immatKey": 24220, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "VD", "encore": "Oui", "cantonA": "VD", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 21, "statut": "Neuve (importateur CH)", "couleur": "Noir", "boite": "PDK", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "TI", "encore": "Oui", "cantonA": "GE", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 22, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "PDK", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZG", "encore": "Oui", "cantonA": "SZ", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 23, "statut": "Neuve (importateur CH)", "couleur": "Orange", "boite": "PDK", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GR", "encore": "Oui", "cantonA": "GR", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 24, "statut": "Neuve (importateur CH)", "couleur": "Blanc", "boite": "PDK", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZG", "encore": "Oui", "cantonA": "LU", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 25, "statut": "Neuve (importateur CH)", "couleur": "Rouge", "boite": "Manuelle", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BE", "encore": "Oui", "cantonA": "BE", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 26, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "Manuelle", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "TI", "encore": "Oui", "cantonA": "SZ", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 27, "statut": "Neuve (importateur CH)", "couleur": "Jaune", "boite": "Manuelle", "immat": "06/2018", "immatKey": 24221, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BL", "encore": "Oui", "cantonA": "BL", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 28, "statut": "Neuve (importateur CH)", "couleur": "Noir", "boite": "Manuelle", "immat": "07/2018", "immatKey": 24222, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GE", "encore": "Oui", "cantonA": "ZH", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 29, "statut": "Neuve (importateur CH)", "couleur": "Noir", "boite": "PDK", "immat": "08/2018", "immatKey": 24223, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZG", "encore": "Oui", "cantonA": "SH", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 30, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "PDK", "immat": "08/2018", "immatKey": 24223, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BE", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1500, "poidsEst": true}, {"n": 31, "statut": "Neuve (importateur CH)", "couleur": "Orange", "boite": "PDK", "immat": "09/2018", "immatKey": 24224, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "BL", "encore": "Oui", "cantonA": "VS", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 32, "statut": "Neuve (importateur CH)", "couleur": "Blanc", "boite": "PDK", "immat": "09/2018", "immatKey": 24224, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "TI", "encore": "Oui", "cantonA": "TI", "mouv": "Même canton", "poids": 1500, "poidsEst": true}, {"n": 33, "statut": "Neuve (importateur CH)", "couleur": "Rouge", "boite": "PDK", "immat": "09/2018", "immatKey": 24224, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "ZH", "encore": "Oui", "cantonA": "AG", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 34, "statut": "Neuve (importateur CH)", "couleur": "Gris", "boite": "Manuelle", "immat": "10/2018", "immatKey": 24225, "origine": "Suisse", "arrivee": "–", "arrKey": null, "canton1": "GE", "encore": "Oui", "cantonA": "VS", "mouv": "Autre canton", "poids": 1500, "poidsEst": true}, {"n": 35, "statut": "Import occasion", "couleur": "Blanc", "boite": "PDK", "immat": "07/2018", "immatKey": 24222, "origine": "Allemagne", "arrivee": "07/2018", "arrKey": 24222, "canton1": "FR", "encore": "Oui", "cantonA": "VS", "mouv": "Autre canton", "poids": 1571, "poidsEst": false}, {"n": 36, "statut": "Import occasion", "couleur": "Blanc", "boite": "Manuelle", "immat": "12/2017", "immatKey": 24215, "origine": "Allemagne", "arrivee": "11/2018", "arrKey": 24226, "canton1": "LU", "encore": "Oui", "cantonA": "VD", "mouv": "Autre canton", "poids": 1558, "poidsEst": false}, {"n": 37, "statut": "Import occasion", "couleur": "Jaune", "boite": "PDK", "immat": "07/2018", "immatKey": 24222, "origine": "Allemagne", "arrivee": "04/2019", "arrKey": 24231, "canton1": "AG", "encore": "Oui", "cantonA": "AG", "mouv": "Même canton", "poids": 1520, "poidsEst": false}, {"n": 38, "statut": "Import occasion", "couleur": "Vert", "boite": "Manuelle", "immat": "10/2018", "immatKey": 24225, "origine": "Allemagne", "arrivee": "05/2019", "arrKey": 24232, "canton1": "ZH", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1581, "poidsEst": false}, {"n": 39, "statut": "Import occasion", "couleur": "Noir", "boite": "PDK", "immat": "08/2018", "immatKey": 24223, "origine": "Allemagne", "arrivee": "10/2019", "arrKey": 24237, "canton1": "SG", "encore": "Oui", "cantonA": "ZH", "mouv": "Autre canton", "poids": 1579, "poidsEst": false}, {"n": 40, "statut": "Import occasion", "couleur": "Noir", "boite": "PDK", "immat": "08/2018", "immatKey": 24223, "origine": "Allemagne", "arrivee": "10/2019", "arrKey": 24237, "canton1": "GE", "encore": "Oui", "cantonA": "VD", "mouv": "Autre canton", "poids": 1520, "poidsEst": false}, {"n": 41, "statut": "Import occasion", "couleur": "Jaune", "boite": "Manuelle", "immat": "06/2018", "immatKey": 24221, "origine": "Allemagne", "arrivee": "03/2020", "arrKey": 24242, "canton1": "TI", "encore": "Oui", "cantonA": "GR", "mouv": "Autre canton", "poids": 1500, "poidsEst": false}, {"n": 42, "statut": "Import occasion", "couleur": "Bleu", "boite": "Manuelle", "immat": "04/2018", "immatKey": 24219, "origine": "Allemagne", "arrivee": "06/2020", "arrKey": 24245, "canton1": "VS", "encore": "Oui", "cantonA": "VS", "mouv": "Même canton", "poids": 1567, "poidsEst": false}, {"n": 43, "statut": "Import occasion", "couleur": "Orange", "boite": "Non renseignée", "immat": "04/2018", "immatKey": 24219, "origine": "Italie", "arrivee": "07/2020", "arrKey": 24246, "canton1": "AR", "encore": "Oui", "cantonA": "VD", "mouv": "Autre canton", "poids": 1559, "poidsEst": false}, {"n": 44, "statut": "Import occasion", "couleur": "Gris", "boite": "Manuelle", "immat": "07/2018", "immatKey": 24222, "origine": "États-Unis", "arrivee": "06/2021", "arrKey": 24257, "canton1": "VD", "encore": "Non", "cantonA": "–", "mouv": "Non déterminable", "poids": 1555, "poidsEst": false}, {"n": 45, "statut": "Import occasion", "couleur": "Blanc", "boite": "Manuelle", "immat": "07/2018", "immatKey": 24222, "origine": "Allemagne", "arrivee": "12/2021", "arrKey": 24263, "canton1": "AG", "encore": "Oui", "cantonA": "AG", "mouv": "Même canton", "poids": 1547, "poidsEst": false}, {"n": 46, "statut": "Import occasion", "couleur": "Rouge", "boite": "Manuelle", "immat": "08/2019", "immatKey": 24235, "origine": "France", "arrivee": "04/2022", "arrKey": 24267, "canton1": "VD", "encore": "Oui", "cantonA": "VD", "mouv": "Même canton", "poids": 1567, "poidsEst": false}, {"n": 47, "statut": "Import occasion", "couleur": "Gris", "boite": "Manuelle", "immat": "04/2018", "immatKey": 24219, "origine": "Allemagne", "arrivee": "08/2023", "arrKey": 24283, "canton1": "BS", "encore": "Oui", "cantonA": "BS", "mouv": "Même canton", "poids": 1591, "poidsEst": false}, {"n": 48, "statut": "Import occasion", "couleur": "Gris", "boite": "PDK", "immat": "03/2018", "immatKey": 24218, "origine": "Allemagne", "arrivee": "04/2024", "arrKey": 24291, "canton1": "ZG", "encore": "Oui", "cantonA": "ZG", "mouv": "Même canton", "poids": 1598, "poidsEst": false}, {"n": 49, "statut": "Import occasion", "couleur": "Orange", "boite": "Manuelle", "immat": "07/2018", "immatKey": 24222, "origine": "Allemagne", "arrivee": "06/2024", "arrKey": 24293, "canton1": "TI", "encore": "Oui", "cantonA": "TI", "mouv": "Même canton", "poids": 1546, "poidsEst": false}, {"n": 50, "statut": "Import occasion", "couleur": "Bleu", "boite": "Non renseignée", "immat": "08/2018", "immatKey": 24223, "origine": "Suède", "arrivee": "09/2024", "arrKey": 24296, "canton1": "AR", "encore": "Oui", "cantonA": "AR", "mouv": "Même canton", "poids": 1541, "poidsEst": false}, {"n": 51, "statut": "Import occasion", "couleur": "Blanc", "boite": "Manuelle", "immat": "08/2018", "immatKey": 24223, "origine": "Allemagne", "arrivee": "12/2024", "arrKey": 24299, "canton1": "VD", "encore": "Oui", "cantonA": "VD", "mouv": "Même canton", "poids": 1565, "poidsEst": false}, {"n": 52, "statut": "Import occasion", "couleur": "Blanc", "boite": "Manuelle", "immat": "03/2018", "immatKey": 24218, "origine": "Allemagne", "arrivee": "09/2025", "arrKey": 24308, "canton1": "SG", "encore": "Oui", "cantonA": "SG", "mouv": "Même canton", "poids": 1531, "poidsEst": false}, {"n": 53, "statut": "Import occasion", "couleur": "Noir", "boite": "Manuelle", "immat": "08/2018", "immatKey": 24223, "origine": "Monaco", "arrivee": "03/2026", "arrKey": 24314, "canton1": "GE", "encore": "Oui", "cantonA": "GE", "mouv": "Même canton", "poids": 1500, "poidsEst": false}, {"n": 54, "statut": "Incertaine (T ou Carrera)", "couleur": "Rouge", "boite": "Non renseignée", "immat": "02/2019", "immatKey": 24229, "origine": "Émirats arabes unis", "arrivee": "11/2019", "arrKey": 24238, "canton1": "SH", "encore": "Oui", "cantonA": "?", "mouv": "Non déterminable", "poids": 1505, "poidsEst": false}];
+const D = {"rows":[{"n":"1","nNum":1,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"Manuelle","immatISO":"2018-02","origine":"Suisse","arrISO":null,"c1":"GE","parcours":"GE","steps":[{"c":"GE","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"GE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE"]},{"n":"2","nNum":2,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"PDK","immatISO":"2018-03","origine":"Suisse","arrISO":null,"c1":"BL","parcours":"BL → AG (2026)","steps":[{"c":"BL","q":false,"d":null},{"c":"AG","q":false,"d":"2026"}],"nb":2,"encore":"Oui","actuel":"AG","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["BL","BL","BL","BL","BL","—","BL","BL","BL","BL","BL","BL","BL","AG","AG"]},{"n":"3","nNum":3,"statut":"Neuve (importateur CH)","couleur":"Blanc","boite":"PDK","immatISO":"2018-03","origine":"Suisse","arrISO":null,"c1":"BL","parcours":"BL","steps":[{"c":"BL","q":false,"d":null}],"nb":1,"encore":"Non","actuel":"–","derISO":"2021-01","derTxt":"01.01.2021","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["BL","BL","BL","BL","BL","BL","—","—","—","—","—","—","—","—","—"]},{"n":"4","nNum":4,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"Manuelle","immatISO":"2018-03","origine":"Suisse","arrISO":null,"c1":"GR","parcours":"GR → ZH (2022-07) → GR (2026-10)","steps":[{"c":"GR","q":false,"d":null},{"c":"ZH","q":false,"d":"2022-07"},{"c":"GR","q":false,"d":"2026-10"}],"nb":3,"encore":"Oui","actuel":"GR","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["GR","GR","GR","GR","GR","GR","GR","GR","ZH","ZH","ZH","—","—","—","GR"]},{"n":"5","nNum":5,"statut":"Neuve (importateur CH)","couleur":"Blanc","boite":"PDK","immatISO":"2018-03","origine":"Suisse","arrISO":null,"c1":"AG","parcours":"AG → BE (2022-07)","steps":[{"c":"AG","q":false,"d":null},{"c":"BE","q":false,"d":"2022-07"}],"nb":2,"encore":"Oui","actuel":"BE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["AG","—","AG","AG","AG","—","—","—","BE","—","—","—","—","—","BE"]},{"n":"6","nNum":6,"statut":"Neuve (importateur CH)","couleur":"Blanc","boite":"PDK","immatISO":"2018-03","origine":"Suisse","arrISO":null,"c1":"BE","parcours":"BE → ZG (2018-07) → ZH (2020-07) → VD (2022-07) → FR (2023)","steps":[{"c":"BE","q":false,"d":null},{"c":"ZG","q":false,"d":"2018-07"},{"c":"ZH","q":false,"d":"2020-07"},{"c":"VD","q":false,"d":"2022-07"},{"c":"FR","q":false,"d":"2023"}],"nb":5,"encore":"Oui","actuel":"FR","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["ZG","ZG","—","—","ZH","ZH","ZH","—","VD","FR","FR","FR","FR","FR","FR"]},{"n":"7","nNum":7,"statut":"Neuve (importateur CH)","couleur":"Bleu","boite":"Manuelle","immatISO":"2018-03","origine":"Suisse","arrISO":null,"c1":"VD","parcours":"VD","steps":[{"c":"VD","q":false,"d":null}],"nb":1,"encore":"Non","actuel":"–","derISO":"2022-07","derTxt":"01.07.2022","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","—","—","—","—","—","—","—","VD","—","—","—","—","—","—"]},{"n":"8","nNum":8,"statut":"Neuve (importateur CH)","couleur":"Blanc","boite":"PDK","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"ZG","parcours":"ZG → SG (2019) → LU (2020) → BL (2020-07) → BS (2022-07) → ZG (2023)","steps":[{"c":"ZG","q":false,"d":null},{"c":"SG","q":false,"d":"2019"},{"c":"LU","q":false,"d":"2020"},{"c":"BL","q":false,"d":"2020-07"},{"c":"BS","q":false,"d":"2022-07"},{"c":"ZG","q":false,"d":"2023"}],"nb":6,"encore":"Non","actuel":"–","derISO":"2024-01","derTxt":"01.01.2024","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["ZG","SG","—","LU","BL","BL","BL","BL","BS","ZG","ZG","—","—","—","—"]},{"n":"9","nNum":9,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"Manuelle","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"ZH","parcours":"ZH → SZ? (2018-07) → ZG (2019-07) → SH (2020-07) → AG (2021-07) → ZH (2026-10)","steps":[{"c":"ZH","q":false,"d":null},{"c":"SZ","q":true,"d":"2018-07"},{"c":"ZG","q":false,"d":"2019-07"},{"c":"SH","q":false,"d":"2020-07"},{"c":"AG","q":false,"d":"2021-07"},{"c":"ZH","q":false,"d":"2026-10"}],"nb":6,"encore":"Oui","actuel":"ZH","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"partielle","confTxt":"partielle: faible (par élimination)","mine":false,"inc":false,"hist":["SZ?","—","ZG","—","SH","—","AG","AG","AG","—","AG","AG","—","—","ZH"]},{"n":"10","nNum":10,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"Manuelle","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"BL","parcours":"BL → JU (2022-07) → VD (2024)","steps":[{"c":"BL","q":false,"d":null},{"c":"JU","q":false,"d":"2022-07"},{"c":"VD","q":false,"d":"2024"}],"nb":3,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["BL","BL","BL","BL","BL","BL","BL","BL","JU","JU","VD","VD","VD","—","VD"]},{"n":"11","nNum":11,"statut":"Neuve (importateur CH)","couleur":"Rouge","boite":"Manuelle","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"GE","parcours":"GE","steps":[{"c":"GE","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"GE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","—","GE","GE","GE"]},{"n":"12","nNum":12,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"Manuelle","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"GE","parcours":"GE","steps":[{"c":"GE","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"GE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE"]},{"n":"13","nNum":13,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"PDK","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"ZG","parcours":"ZG → VD (2021) → SZ (2022-07)","steps":[{"c":"ZG","q":false,"d":null},{"c":"VD","q":false,"d":"2021"},{"c":"SZ","q":false,"d":"2022-07"}],"nb":3,"encore":"Oui","actuel":"SZ","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["ZG","ZG","ZG","ZG","ZG","VD","VD","—","SZ","SZ","SZ","SZ","SZ","SZ","SZ"]},{"n":"14","nNum":14,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"PDK","immatISO":"2018-04","origine":"Suisse","arrISO":null,"c1":"VS","parcours":"VS","steps":[{"c":"VS","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"VS","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["VS","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS"]},{"n":"15","nNum":15,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"PDK","immatISO":"2018-05","origine":"Suisse","arrISO":null,"c1":"ZG","parcours":"ZG → AG (2020-07) → ZH (2024) → TG (2025) → ZG (2026-10)","steps":[{"c":"ZG","q":false,"d":null},{"c":"AG","q":false,"d":"2020-07"},{"c":"ZH","q":false,"d":"2024"},{"c":"TG","q":false,"d":"2025"},{"c":"ZG","q":false,"d":"2026-10"}],"nb":5,"encore":"Oui","actuel":"ZG","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["ZG","ZG","—","—","AG","—","AG","AG","AG","—","ZH","ZH","TG","TG","ZG"]},{"n":"16","nNum":16,"statut":"Neuve (importateur CH)","couleur":"Noir","boite":"PDK","immatISO":"2018-05","origine":"Suisse","arrISO":null,"c1":"JU","parcours":"JU → GE (2021-07)","steps":[{"c":"JU","q":false,"d":null},{"c":"GE","q":false,"d":"2021-07"}],"nb":2,"encore":"Oui","actuel":"GE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["JU","JU","JU","JU","—","—","GE","GE","GE","GE","—","—","—","—","GE"]},{"n":"17","nNum":17,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"Manuelle","immatISO":"2018-05","origine":"Suisse","arrISO":null,"c1":"BE","parcours":"BE → VD (2018-07)","steps":[{"c":"BE","q":false,"d":null},{"c":"VD","q":false,"d":"2018-07"}],"nb":2,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["VD","VD","VD","VD","VD","VD","VD","VD","VD","VD","VD","VD","VD","VD","VD"]},{"n":"18","nNum":18,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"Manuelle","immatISO":"2018-05","origine":"Suisse","arrISO":null,"c1":"SZ","parcours":"SZ","steps":[{"c":"SZ","q":false,"d":null}],"nb":1,"encore":"Non","actuel":"–","derISO":"2020-01","derTxt":"01.01.2020","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["SZ","SZ","SZ","SZ","—","—","—","—","—","—","—","—","—","—","—"]},{"n":"19","nNum":19,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"PDK","immatISO":"2018-05","origine":"Suisse","arrISO":null,"c1":"VD","parcours":"VD","steps":[{"c":"VD","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"partielle","confTxt":"partielle: faible (19/20 indiscernables); moyenne (n° 19/20 départagés par NPA)","mine":false,"inc":false,"hist":["VD*","VD*","—","—","VD","VD","—","—","VD*","—","—","—","—","VD","VD"]},{"n":"20","nNum":20,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"PDK","immatISO":"2018-05","origine":"Suisse","arrISO":null,"c1":"VD","parcours":"VD","steps":[{"c":"VD","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"partielle","confTxt":"partielle: faible (19/20 indiscernables); moyenne (n° 19/20 départagés par NPA)","mine":false,"inc":false,"hist":["VD*","VD*","VD","VD","VD","VD","VD","VD","VD*","VD","VD","VD","VD","—","VD"]},{"n":"21","nNum":21,"statut":"Neuve (importateur CH)","couleur":"Noir","boite":"PDK","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"TI","parcours":"TI → GE (2020-07)","steps":[{"c":"TI","q":false,"d":null},{"c":"GE","q":false,"d":"2020-07"}],"nb":2,"encore":"Oui","actuel":"GE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["TI","TI","TI","—","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE","GE"]},{"n":"22","nNum":22,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"PDK","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"ZG","parcours":"ZG → SZ (2026)","steps":[{"c":"ZG","q":false,"d":null},{"c":"SZ","q":false,"d":"2026"}],"nb":2,"encore":"Oui","actuel":"SZ","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["ZG","ZG","ZG","ZG","ZG","ZG","ZG","ZG","ZG","—","ZG","ZG","ZG","SZ","SZ"]},{"n":"23","nNum":23,"statut":"Neuve (importateur CH)","couleur":"Orange","boite":"PDK","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"GR","parcours":"GR","steps":[{"c":"GR","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"GR","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["GR","GR","GR","GR","GR","GR","GR","GR","GR","GR","GR","GR","GR","GR","GR"]},{"n":"24","nNum":24,"statut":"Neuve (importateur CH)","couleur":"Blanc","boite":"PDK","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"ZG","parcours":"ZG → TI (2020-07) → BE (2022) → LU (2023)","steps":[{"c":"ZG","q":false,"d":null},{"c":"TI","q":false,"d":"2020-07"},{"c":"BE","q":false,"d":"2022"},{"c":"LU","q":false,"d":"2023"}],"nb":4,"encore":"Oui","actuel":"LU","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["ZG","—","—","—","TI","TI","TI","BE","BE","LU","LU","LU","LU","LU","LU"]},{"n":"25","nNum":25,"statut":"Neuve (importateur CH)","couleur":"Rouge","boite":"Manuelle","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"BE","parcours":"BE","steps":[{"c":"BE","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"BE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["BE","BE","BE","BE","BE","BE","BE","BE","BE","BE","BE","BE","BE","BE","BE"]},{"n":"26","nNum":26,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"Manuelle","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"TI","parcours":"TI → SZ (2022)","steps":[{"c":"TI","q":false,"d":null},{"c":"SZ","q":false,"d":"2022"}],"nb":2,"encore":"Oui","actuel":"SZ","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","TI","—","TI","TI","TI","TI","SZ","SZ","SZ","SZ","SZ","SZ","SZ","SZ"]},{"n":"27","nNum":27,"statut":"Neuve (importateur CH)","couleur":"Jaune","boite":"Manuelle","immatISO":"2018-06","origine":"Suisse","arrISO":null,"c1":"BL","parcours":"BL","steps":[{"c":"BL","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"BL","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["BL","BL","BL","BL","BL","BL","BL","BL","BL","BL","BL","BL","BL","BL","BL"]},{"n":"28","nNum":28,"statut":"Neuve (importateur CH)","couleur":"Noir","boite":"Manuelle","immatISO":"2018-07","origine":"Suisse","arrISO":null,"c1":"GE","parcours":"GE → SZ (2020-07) → ZH (2025)","steps":[{"c":"GE","q":false,"d":null},{"c":"SZ","q":false,"d":"2020-07"},{"c":"ZH","q":false,"d":"2025"}],"nb":3,"encore":"Oui","actuel":"ZH","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","GE","GE","GE","SZ","SZ","SZ","SZ","SZ","SZ","SZ","SZ","ZH","ZH","ZH"]},{"n":"29","nNum":29,"statut":"Neuve (importateur CH)","couleur":"Noir","boite":"PDK","immatISO":"2018-08","origine":"Suisse","arrISO":null,"c1":"ZG","parcours":"ZG → SH (2021)","steps":[{"c":"ZG","q":false,"d":null},{"c":"SH","q":false,"d":"2021"}],"nb":2,"encore":"Oui","actuel":"SH","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","ZG","ZG","ZG","—","SH","SH","SH","SH","SH","SH","SH","SH","SH","SH"]},{"n":"30","nNum":30,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"PDK","immatISO":"2018-08","origine":"Suisse","arrISO":null,"c1":"BE","parcours":"BE → SZ (2019-07) → ZG (2021) → GR (2024) → BE (2025)","steps":[{"c":"BE","q":false,"d":null},{"c":"SZ","q":false,"d":"2019-07"},{"c":"ZG","q":false,"d":"2021"},{"c":"GR","q":false,"d":"2024"},{"c":"BE","q":false,"d":"2025"}],"nb":5,"encore":"Non","actuel":"–","derISO":"2025-01","derTxt":"01.01.2025","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","BE","SZ","SZ","—","ZG","ZG","ZG","ZG","ZG","GR","GR","BE","—","—"]},{"n":"31","nNum":31,"statut":"Neuve (importateur CH)","couleur":"Orange","boite":"PDK","immatISO":"2018-09","origine":"Suisse","arrISO":null,"c1":"BL","parcours":"BL → ZH (2020) → VD (2020-07) → VS (2022-07)","steps":[{"c":"BL","q":false,"d":null},{"c":"ZH","q":false,"d":"2020"},{"c":"VD","q":false,"d":"2020-07"},{"c":"VS","q":false,"d":"2022-07"}],"nb":4,"encore":"Oui","actuel":"VS","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","BL","BL","ZH","VD","—","—","—","VS","VS","—","VS","VS","VS","VS"]},{"n":"32","nNum":32,"statut":"Neuve (importateur CH)","couleur":"Blanc","boite":"PDK","immatISO":"2018-09","origine":"Suisse","arrISO":null,"c1":"TI","parcours":"TI","steps":[{"c":"TI","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"TI","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","TI","—","—","—","—","—","—","—","—","—","—","—","TI","TI"]},{"n":"33","nNum":33,"statut":"Neuve (importateur CH)","couleur":"Rouge","boite":"PDK","immatISO":"2018-09","origine":"Suisse","arrISO":null,"c1":"ZH","parcours":"ZH → AG (2020-07)","steps":[{"c":"ZH","q":false,"d":null},{"c":"AG","q":false,"d":"2020-07"}],"nb":2,"encore":"Oui","actuel":"AG","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","—","—","—","AG","AG","AG","AG","AG","AG","AG","AG","AG","AG","AG"]},{"n":"34","nNum":34,"statut":"Neuve (importateur CH)","couleur":"Gris","boite":"Manuelle","immatISO":"2018-10","origine":"Suisse","arrISO":null,"c1":"GE","parcours":"GE → VS (2026)","steps":[{"c":"GE","q":false,"d":null},{"c":"VS","q":false,"d":"2026"}],"nb":2,"encore":"Oui","actuel":"VS","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500*","poidsEst":true,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","—","—","—","—","—","—","—","—","—","—","—","—","VS","VS"]},{"n":"35","nNum":35,"statut":"Import occasion","couleur":"Blanc","boite":"PDK","immatISO":"2018-07","origine":"Allemagne","arrISO":"2018-07","c1":"FR","parcours":"FR → VS (2026)","steps":[{"c":"FR","q":false,"d":null},{"c":"VS","q":false,"d":"2026"}],"nb":2,"encore":"Oui","actuel":"VS","derISO":"2026-10","derTxt":"01.10.2026","poids":1571,"poidsTxt":"1571","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["—","—","FR","FR","FR","FR","FR","FR","FR","FR","FR","FR","FR","VS","VS"]},{"n":"36","nNum":36,"statut":"Import occasion","couleur":"Blanc","boite":"Manuelle","immatISO":"2017-12","origine":"Allemagne","arrISO":"2018-11","c1":"LU","parcours":"LU → AG (2022-07) → VD (2024)","steps":[{"c":"LU","q":false,"d":null},{"c":"AG","q":false,"d":"2022-07"},{"c":"VD","q":false,"d":"2024"}],"nb":3,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1558,"poidsTxt":"1558","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","—","—","—","—","—","—","—","AG","—","VD","VD","VD","VD","VD"]},{"n":"37","nNum":37,"statut":"Import occasion","couleur":"Jaune","boite":"PDK","immatISO":"2018-07","origine":"Allemagne","arrISO":"2019-04","c1":"AG","parcours":"AG","steps":[{"c":"AG","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"AG","derISO":"2026-10","derTxt":"01.10.2026","poids":1520,"poidsTxt":"1520","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","AG","AG","AG","AG","AG","AG","AG","AG","AG","AG","AG","AG","AG"]},{"n":"38","nNum":38,"statut":"Import occasion","couleur":"Vert","boite":"Manuelle","immatISO":"2018-10","origine":"Allemagne","arrISO":"2019-05","c1":"ZH","parcours":"ZH → ZG (2021)","steps":[{"c":"ZH","q":false,"d":null},{"c":"ZG","q":false,"d":"2021"}],"nb":2,"encore":"Non","actuel":"–","derISO":"2021-01","derTxt":"01.01.2021","poids":1581,"poidsTxt":"1581","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","ZH","ZH","ZH","ZG","—","—","—","—","—","—","—","—","—"]},{"n":"39","nNum":39,"statut":"Import occasion","couleur":"Noir","boite":"PDK","immatISO":"2018-08","origine":"Allemagne","arrISO":"2019-10","c1":"SG","parcours":"SG → ZH (2021)","steps":[{"c":"SG","q":false,"d":null},{"c":"ZH","q":false,"d":"2021"}],"nb":2,"encore":"Oui","actuel":"ZH","derISO":"2026-10","derTxt":"01.10.2026","poids":1579,"poidsTxt":"1579","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","—","—","ZH","ZH","ZH","ZH","ZH","ZH","ZH","ZH","ZH","ZH"]},{"n":"40","nNum":40,"statut":"Import occasion","couleur":"Noir","boite":"PDK","immatISO":"2018-08","origine":"Allemagne","arrISO":"2019-10","c1":"GE","parcours":"GE → VD (2024)","steps":[{"c":"GE","q":false,"d":null},{"c":"VD","q":false,"d":"2024"}],"nb":2,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1520,"poidsTxt":"1520","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","GE","GE","GE","GE","GE","GE","GE","VD","VD","VD","VD","VD"]},{"n":"41","nNum":41,"statut":"Import occasion","couleur":"Jaune","boite":"Manuelle","immatISO":"2018-06","origine":"Allemagne","arrISO":"2020-03","c1":"TI","parcours":"TI → GR (2022-07)","steps":[{"c":"TI","q":false,"d":null},{"c":"GR","q":false,"d":"2022-07"}],"nb":2,"encore":"Oui","actuel":"GR","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","TI","TI","TI","—","GR","GR","GR","GR","GR","GR","GR"]},{"n":"42","nNum":42,"statut":"Import occasion","couleur":"Bleu","boite":"Manuelle","immatISO":"2018-04","origine":"Allemagne","arrISO":"2020-06","c1":"VS","parcours":"VS","steps":[{"c":"VS","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"VS","derISO":"2026-10","derTxt":"01.10.2026","poids":1567,"poidsTxt":"1567","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS","VS"]},{"n":"43","nNum":43,"statut":"Import occasion","couleur":"Orange","boite":"Non renseignée","immatISO":"2018-04","origine":"Italie","arrISO":"2020-07","c1":"AR","parcours":"AR → VD (2022-07)","steps":[{"c":"AR","q":false,"d":null},{"c":"VD","q":false,"d":"2022-07"}],"nb":2,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1559,"poidsTxt":"1559","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","—","AR","AR","—","VD","VD","VD","VD","VD","VD","VD"]},{"n":"44","nNum":44,"statut":"Import occasion","couleur":"Gris","boite":"Manuelle","immatISO":"2018-07","origine":"États-Unis","arrISO":"2021-06","c1":"VD","parcours":"VD","steps":[{"c":"VD","q":false,"d":null}],"nb":1,"encore":"Non","actuel":"–","derISO":"2026-01","derTxt":"01.01.2026","poids":1555,"poidsTxt":"1555","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","VD","VD","VD","VD","VD","VD","VD","VD","—"]},{"n":"45","nNum":45,"statut":"Import occasion","couleur":"Blanc","boite":"Manuelle","immatISO":"2018-07","origine":"Allemagne","arrISO":"2021-12","c1":"AG","parcours":"AG","steps":[{"c":"AG","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"AG","derISO":"2026-10","derTxt":"01.10.2026","poids":1547,"poidsTxt":"1547","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","AG","AG","AG","AG","AG","AG","AG","AG"]},{"n":"46","nNum":46,"statut":"Import occasion","couleur":"Rouge","boite":"Manuelle","immatISO":"2019-08","origine":"France","arrISO":"2022-04","c1":"VD","parcours":"VD","steps":[{"c":"VD","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1567,"poidsTxt":"1567","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","VD","VD","VD","VD","VD","VD","VD"]},{"n":"47","nNum":47,"statut":"Import occasion","couleur":"Gris","boite":"Manuelle","immatISO":"2018-04","origine":"Allemagne","arrISO":"2023-08","c1":"BS","parcours":"BS","steps":[{"c":"BS","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"BS","derISO":"2026-10","derTxt":"01.10.2026","poids":1591,"poidsTxt":"1591","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","BS","BS","BS","BS","BS"]},{"n":"48","nNum":48,"statut":"Import occasion","couleur":"Gris","boite":"PDK","immatISO":"2018-03","origine":"Allemagne","arrISO":"2024-04","c1":"ZG","parcours":"ZG","steps":[{"c":"ZG","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"ZG","derISO":"2026-10","derTxt":"01.10.2026","poids":1598,"poidsTxt":"1598","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","ZG","ZG","ZG","ZG"]},{"n":"49","nNum":49,"statut":"Import occasion","couleur":"Orange","boite":"Manuelle","immatISO":"2018-07","origine":"Allemagne","arrISO":"2024-06","c1":"TI","parcours":"TI","steps":[{"c":"TI","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"TI","derISO":"2026-10","derTxt":"01.10.2026","poids":1546,"poidsTxt":"1546","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","TI","TI","TI","TI"]},{"n":"50","nNum":50,"statut":"Import occasion","couleur":"Bleu","boite":"Non renseignée","immatISO":"2018-08","origine":"Suède","arrISO":"2024-09","c1":"AR","parcours":"AR","steps":[{"c":"AR","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"AR","derISO":"2026-10","derTxt":"01.10.2026","poids":1541,"poidsTxt":"1541","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","AR","AR","AR"]},{"n":"51","nNum":51,"statut":"Import occasion","couleur":"Blanc","boite":"Manuelle","immatISO":"2018-08","origine":"Allemagne","arrISO":"2024-12","c1":"VD","parcours":"VD","steps":[{"c":"VD","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"VD","derISO":"2026-10","derTxt":"01.10.2026","poids":1565,"poidsTxt":"1565","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":true,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","—","—","VD"]},{"n":"52","nNum":52,"statut":"Import occasion","couleur":"Blanc","boite":"Manuelle","immatISO":"2018-03","origine":"Allemagne","arrISO":"2025-09","c1":"SG","parcours":"SG","steps":[{"c":"SG","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"SG","derISO":"2026-10","derTxt":"01.10.2026","poids":1531,"poidsTxt":"1531","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","SG","SG"]},{"n":"53","nNum":53,"statut":"Import occasion","couleur":"Noir","boite":"Manuelle","immatISO":"2018-08","origine":"Monaco","arrISO":"2026-03","c1":"GE","parcours":"GE","steps":[{"c":"GE","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"GE","derISO":"2026-10","derTxt":"01.10.2026","poids":1500,"poidsTxt":"1500","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":false,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","GE"]},{"n":"54","nNum":54,"statut":"Incertaine (T ou Carrera)","couleur":"Rouge","boite":"Non renseignée","immatISO":"2019-02","origine":"Émirats arabes unis","arrISO":"2019-11","c1":"SH","parcours":"SH","steps":[{"c":"SH","q":false,"d":null}],"nb":1,"encore":"Oui","actuel":"SH","derISO":"2026-10","derTxt":"01.10.2026","poids":1505,"poidsTxt":"1505","poidsEst":false,"conf":"élevée","confTxt":"élevée","mine":false,"inc":true,"hist":["(pas encore en CH)","(pas encore en CH)","(pas encore en CH)","SH","SH","SH","SH","SH","SH","SH","SH","SH","SH","SH","SH"]}],"releves":["01.07.2018","01.01.2019","01.07.2019","01.01.2020","01.07.2020","01.01.2021","01.07.2021","01.01.2022","01.07.2022","01.01.2023","01.01.2024","01.07.2024","01.01.2025","01.01.2026","01.10.2026"],"date":"01.10.2026"};
+const ROWS = D.rows, RELEVES = D.releves;
 
-const COLORS = {"Gris":"#8d9199","Blanc":"#f4f4f2","Jaune":"#f2c200","Orange":"#e8701a","Rouge":"#c8102e","Noir":"#16171a","Noir métal.":"#2f3237","Bleu":"#1f4e9c","Blanc métal.":"#dfe2e5","Vert":"#2f6b45","Gris métal.":"#8d9199"};
+const SWATCH = {gris:"#8d9199",noir:"#16171a",blanc:"#f4f4f2",bleu:"#1f4e9c",vert:"#2f6b45",rouge:"#c8102e",jaune:"#f2c200",orange:"#e8701a"};
+const swatchFor = l => SWATCH[l.toLowerCase()] || "#999";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mkey = s => { if (!s) return null; const [y,m] = s.split("-").map(Number); return y*12 + (m-1); };
+const mlabel = k => String(k % 12 + 1).padStart(2,"0") + "/" + Math.floor(k/12);
+
+ROWS.forEach(r => {
+  r.immatKey = mkey(r.immatISO);
+  r.arrKey = r.arrISO ? mkey(r.arrISO) : null;
+  r.derKey = r.derISO ? mkey(r.derISO) : null;
+  r.passe = [...new Set(r.steps.map(s => s.c))];
+  r.change = r.nb > 1 ? "Oui" : "Non";
+  r.nbs = String(r.nb);
+  r.hay = [r.n, r.statut, r.couleur, r.boite, r.origine, r.c1, r.parcours, r.actuel, r.conf, r.mine ? "ma voiture" : ""].join(" ").toLowerCase();
+});
 
 const GROUPS = [
-  {key:"statut",  label:"Statut"},
-  {key:"encore",  label:"Encore immatriculée"},
-  {key:"couleur", label:"Couleur", swatch:true},
-  {key:"boite",   label:"Boîte"},
-  {key:"origine", label:"Origine"},
-  {key:"canton1", label:"1er canton"},
-  {key:"cantonA", label:"Canton actuel", skip:["–"]},
-  {key:"mouv",    label:"Canton actuel par rapport au 1er"}
+  {k:"statut",  label:"Statut", vals:r=>[r.statut], open:1},
+  {k:"encore",  label:"Encore immatriculée", vals:r=>[r.encore], open:1, order:["Oui","Non"]},
+  {k:"couleur", label:"Couleur", vals:r=>[r.couleur], swatch:1},
+  {k:"boite",   label:"Boîte", vals:r=>[r.boite]},
+  {k:"origine", label:"Origine", vals:r=>[r.origine]},
+  {k:"c1",      label:"1er canton", vals:r=>[r.c1]},
+  {k:"actuel",  label:"Canton actuel", vals:r=>[r.actuel], skip:["–"]},
+  {k:"passe",   label:"Est passée par le canton", vals:r=>r.passe},
+  {k:"change",  label:"A changé de canton", vals:r=>[r.change], order:["Oui","Non"]},
+  {k:"nbs",     label:"Nombre de cantons du parcours", vals:r=>[r.nbs], order:"label"},
+  {k:"conf",    label:"Fiabilité du parcours", vals:r=>[r.conf], order:["élevée","partielle"]}
 ];
-const COLS = [
-  {key:"n",       label:"N°",             type:"num", cls:"num id"},
-  {key:"statut",  label:"Statut",         type:"str"},
-  {key:"couleur", label:"Couleur",        type:"str"},
-  {key:"boite",   label:"Boîte",          type:"str"},
-  {key:"immatKey",label:"1re immat.",     type:"num", cls:"num"},
-  {key:"origine", label:"Origine",        type:"str"},
-  {key:"arrKey",  label:"Arrivée CH",     type:"num", cls:"num"},
-  {key:"canton1", label:"1er canton",      type:"str"},
-  {key:"encore",  label:"Encore immat.",  type:"str"},
-  {key:"cantonA", label:"Canton actuel",  type:"str"},
-  {key:"poids",   label:"Poids (kg)",     type:"num", cls:"num"}
+const RANGES = [
+  {id:"immat", label:"1re immatriculation", type:"month", key:"immatKey", open:1},
+  {id:"arr",   label:"Arrivée en Suisse", type:"month", key:"arrKey", hint:"Les voitures neuves n'ont pas de date d'arrivée : elles sont exclues dès qu'une date est saisie."},
+  {id:"der",   label:"Dernière présence au registre", type:"month", key:"derKey", hint:"Mois du dernier relevé où la voiture figure."},
+  {id:"poids", label:"Poids (kg)", type:"number", key:"poids", hint:"Les voitures neuves sont comptées à 1 500 kg (valeur indicative)."}
+];
+const TCOLS = [
+  {k:"n", label:"N°", get:r=>r.n, cls:"num id"},
+  {k:"statut", label:"Statut", get:r=>r.statut},
+  {k:"couleur", label:"Couleur", get:r=>r.couleur},
+  {k:"boite", label:"Boîte", get:r=>r.boite},
+  {k:"immat", label:"1re immat.", get:r=>r.immatKey, cls:"num"},
+  {k:"origine", label:"Origine", get:r=>r.origine},
+  {k:"arr", label:"Arrivée CH", get:r=>r.arrKey, cls:"num"},
+  {k:"c1", label:"1er canton", get:r=>r.c1},
+  {k:"parcours", label:"Parcours des cantons (année du changement)", get:r=>r.nb},
+  {k:"nb", label:"Nb cantons", get:r=>r.nb, cls:"num"},
+  {k:"encore", label:"Encore immat.", get:r=>r.encore},
+  {k:"actuel", label:"Canton actuel", get:r=>r.actuel === "–" ? null : r.actuel},
+  {k:"der", label:"Dernière présence", get:r=>r.derKey, cls:"num"},
+  {k:"poids", label:"Poids (kg)", get:r=>r.poids, cls:"num"},
+  {k:"conf", label:"Fiabilité", get:r=>r.conf}
 ];
 
-const state = {
-  sel: Object.fromEntries(GROUPS.map(g=>[g.key,new Set()])),
-  immatFrom:"", immatTo:"", arrFrom:"", arrTo:"", pMin:"", pMax:"", q:"",
-  sortKey:"n", sortDir:1
-};
+const sel = Object.fromEntries(GROUPS.map(g => [g.k, new Set()]));
+const rstate = {}; RANGES.forEach(r => rstate[r.id] = {lo:"", hi:""});
+const state = {q:"", sortK:"n", sortDir:1};
 
-const mkey = s => { if(!s) return null; const [y,m]=s.split("-").map(Number); return y*12+(m-1); };
-const fmtN = n => n.toLocaleString("fr-CH").replace(/\u202f|\u00a0/g," ");
-
-function matches(r, skip){
-  for(const g of GROUPS){
-    if(g.key===skip) continue;
-    const s = state.sel[g.key];
-    if(s.size && !s.has(r[g.key])) return false;
-  }
-  if(skip) return true;
-  return true;
-}
-function matchesRanges(r){
-  const a=mkey(state.immatFrom), b=mkey(state.immatTo);
-  if(a!==null && r.immatKey<a) return false;
-  if(b!==null && r.immatKey>b) return false;
-  const c=mkey(state.arrFrom), d=mkey(state.arrTo);
-  if(c!==null || d!==null){
-    if(r.arrKey===null) return false;
-    if(c!==null && r.arrKey<c) return false;
-    if(d!==null && r.arrKey>d) return false;
-  }
-  const lo=state.pMin===""?null:Number(state.pMin), hi=state.pMax===""?null:Number(state.pMax);
-  if(lo!==null && r.poids<lo) return false;
-  if(hi!==null && r.poids>hi) return false;
-  if(state.q){
-    const hay=(r.n+" "+r.statut+" "+r.couleur+" "+r.boite+" "+r.immat+" "+r.origine+" "+r.arrivee+" "+r.canton1+" "+r.encore+" "+r.cantonA+" "+r.poids).toLowerCase();
-    if(!hay.includes(state.q.toLowerCase())) return false;
-  }
-  return true;
-}
-const fullMatch = r => matches(r) && matchesRanges(r);
-
-/* ---------- construction des filtres ---------- */
+/* ---------- filtres ---------- */
 const aside = document.getElementById("filters");
-const chipRefs = {};
-
-function uniq(key){
+const chipRefs = {}, badges = {};
+GROUPS.forEach(g => {
   const counts = {};
-  DATA.forEach(r=>counts[r[key]]=(counts[r[key]]||0)+1);
-  return Object.keys(counts).sort((a,b)=>counts[b]-counts[a]||a.localeCompare(b,"fr"));
-}
+  ROWS.forEach(r => g.vals(r).forEach(v => counts[v] = (counts[v]||0) + 1));
+  let values = Object.keys(counts).filter(v => !(g.skip||[]).includes(v));
+  if (Array.isArray(g.order)) values.sort((a,b) => g.order.indexOf(a) - g.order.indexOf(b));
+  else if (g.order === "label") values.sort((a,b) => Number(a) - Number(b));
+  else values.sort((a,b) => counts[b] - counts[a] || a.localeCompare(b, "fr"));
 
-GROUPS.forEach(g=>{
-  const fs=document.createElement("fieldset");
-  const lg=document.createElement("legend"); lg.textContent=g.label; fs.appendChild(lg);
-  const box=document.createElement("div"); box.className="group"; fs.appendChild(box);
-  chipRefs[g.key]={};
-  uniq(g.key).filter(v=>!(g.skip||[]).includes(v)).forEach(v=>{
-    const b=document.createElement("button");
-    b.type="button"; b.className="chip"; b.setAttribute("aria-pressed","false");
-    if(g.swatch){ const sw=document.createElement("span"); sw.className="sw"; sw.style.background=COLORS[v]||"#999"; b.appendChild(sw); }
-    const t=document.createElement("span"); t.textContent=v; b.appendChild(t);
-    const n=document.createElement("span"); n.className="n"; b.appendChild(n);
-    b.addEventListener("click",()=>{
-      const s=state.sel[g.key];
-      s.has(v)?s.delete(v):s.add(v);
-      update();
-    });
-    box.appendChild(b);
-    chipRefs[g.key][v]={btn:b,n};
+  const det = document.createElement("details"); det.open = true;
+  const sum = document.createElement("summary"); sum.innerHTML = "<span>" + esc(g.label) + "</span>";
+  const badge = document.createElement("span"); badge.className = "badge"; sum.appendChild(badge); badges[g.k] = badge;
+  det.appendChild(sum);
+  const body = document.createElement("div"); body.className = "body"; det.appendChild(body);
+  const box = document.createElement("div"); box.className = "group" + (values.length > 18 ? " scroll" : "");
+  chipRefs[g.k] = {};
+  values.forEach(v => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed","false");
+    if (g.swatch) { const sw = document.createElement("span"); sw.className = "sw"; sw.style.background = swatchFor(v); b.appendChild(sw); }
+    const t = document.createElement("span"); t.textContent = v; b.appendChild(t);
+    const n = document.createElement("span"); n.className = "n"; b.appendChild(n);
+    b.addEventListener("click", () => { const s = sel[g.k]; s.has(v) ? s.delete(v) : s.add(v); update(); });
+    box.appendChild(b); chipRefs[g.k][v] = {btn:b, n};
   });
-  aside.appendChild(fs);
+  body.appendChild(box); aside.appendChild(det);
 });
-
-function rangeBlock(title, hint, fields){
-  const fs=document.createElement("fieldset");
-  const lg=document.createElement("legend"); lg.textContent=title; fs.appendChild(lg);
-  const box=document.createElement("div"); box.className="range";
-  fields.forEach(f=>{
-    const l=document.createElement("label"); l.textContent=f.label;
-    const i=document.createElement("input"); i.type=f.type; i.id=f.id;
-    if(f.placeholder) i.placeholder=f.placeholder;
-    if(f.min) i.min=f.min; if(f.max) i.max=f.max; if(f.step) i.step=f.step;
-    i.addEventListener("input",()=>{ state[f.state]=i.value; update(); });
+RANGES.forEach(r => {
+  const det = document.createElement("details"); det.open = true;
+  const sum = document.createElement("summary"); sum.innerHTML = "<span>" + esc(r.label) + "</span>";
+  const badge = document.createElement("span"); badge.className = "badge"; sum.appendChild(badge); r.badge = badge;
+  det.appendChild(sum);
+  const body = document.createElement("div"); body.className = "body"; det.appendChild(body);
+  const box = document.createElement("div"); box.className = "range";
+  const vals = ROWS.map(x => x[r.key]).filter(v => v !== null && v !== undefined);
+  const mn = Math.min(...vals), mx = Math.max(...vals);
+  [["lo", r.type === "month" ? "Depuis" : "Minimum", mn], ["hi", r.type === "month" ? "Jusqu'à" : "Maximum", mx]].forEach(([side, lab, ref]) => {
+    const l = document.createElement("label"); l.textContent = lab;
+    const i = document.createElement("input"); i.type = r.type; i.id = r.id + "_" + side;
+    if (r.type === "month") { const mm = x => Math.floor(x/12) + "-" + String(x % 12 + 1).padStart(2,"0"); i.min = mm(mn); i.max = mm(mx); }
+    else { i.placeholder = String(ref); i.step = "any"; }
+    i.addEventListener("input", () => { rstate[r.id][side] = i.value; update(); });
     l.appendChild(i); box.appendChild(l);
   });
-  fs.appendChild(box);
-  if(hint){ const p=document.createElement("p"); p.className="hint"; p.textContent=hint; fs.appendChild(p); }
-  aside.appendChild(fs);
-}
-rangeBlock("1re immatriculation",null,[
-  {label:"Depuis",type:"month",id:"immatFrom",state:"immatFrom",min:"2017-12",max:"2019-08"},
-  {label:"Jusqu'à",type:"month",id:"immatTo",state:"immatTo",min:"2017-12",max:"2019-08"}
-]);
-rangeBlock("Arrivée en Suisse","Les voitures neuves n'ont pas de date d'arrivée : elles sont exclues dès qu'une date est saisie.",[
-  {label:"Depuis",type:"month",id:"arrFrom",state:"arrFrom",min:"2018-07",max:"2026-03"},
-  {label:"Jusqu'à",type:"month",id:"arrTo",state:"arrTo",min:"2018-07",max:"2026-03"}
-]);
-rangeBlock("Poids (kg)","Les voitures neuves sont comptées à 1 500 kg (valeur indicative).",[
-  {label:"Minimum",type:"number",id:"pMin",state:"pMin",placeholder:"1500",step:"10"},
-  {label:"Maximum",type:"number",id:"pMax",state:"pMax",placeholder:"1598",step:"10"}
-]);
+  body.appendChild(box);
+  if (r.hint) { const p = document.createElement("p"); p.className = "hint"; p.textContent = r.hint; body.appendChild(p); }
+  aside.appendChild(det);
+});
 
-/* ---------- tableau ---------- */
-const head=document.getElementById("head");
-COLS.forEach(c=>{
-  const th=document.createElement("th");
-  if(c.cls&&c.cls.includes("num")) th.className="num";
+/* ---------- en-têtes ---------- */
+const head = document.getElementById("head");
+TCOLS.forEach(c => {
+  const th = document.createElement("th"); if (c.cls && c.cls.includes("num")) th.className = "num";
   th.setAttribute("aria-sort","none");
-  const b=document.createElement("button"); b.type="button";
-  b.innerHTML='<span>'+c.label+'</span><span class="arr" aria-hidden="true"></span>';
-  b.addEventListener("click",()=>{
-    if(state.sortKey===c.key) state.sortDir*=-1; else {state.sortKey=c.key; state.sortDir=1;}
-    update();
-  });
-  th.appendChild(b); head.appendChild(th); c.th=th;
+  const b = document.createElement("button"); b.type = "button";
+  b.innerHTML = "<span>" + esc(c.label) + '</span><span class="arr" aria-hidden="true"></span>';
+  b.addEventListener("click", () => { if (state.sortK === c.k) state.sortDir *= -1; else { state.sortK = c.k; state.sortDir = 1; } render(); });
+  th.appendChild(b); head.appendChild(th); c.th = th;
 });
 
-function cmp(a,b){
-  const k=state.sortKey, col=COLS.find(c=>c.key===k);
-  let x=a[k], y=b[k];
-  if(x===null||x===undefined) return 1;           // valeurs vides toujours en bas
-  if(y===null||y===undefined) return -1;
-  const r = col.type==="num" ? x-y : String(x).localeCompare(String(y),"fr");
-  return (r||a.n-b.n)*state.sortDir;
+/* ---------- filtrage ---------- */
+function passGroups(r, skipKey) {
+  for (const g of GROUPS) {
+    if (g.k === skipKey) continue;
+    const s = sel[g.k]; if (!s.size) continue;
+    if (!g.vals(r).some(v => s.has(v))) return false;
+  }
+  return true;
 }
-
-function tagClass(s){ return s.startsWith("Neuve")?"neuve":s.startsWith("Import")?"occ":"inc"; }
-
-const body=document.getElementById("body");
-function renderRows(rows){
-  body.innerHTML="";
-  const frag=document.createDocumentFragment();
-  rows.forEach(r=>{
-    const tr=document.createElement("tr");
-    const cells=[
-      ['num id', r.n],
-      ['', '<span class="tag '+tagClass(r.statut)+'">'+r.statut+'</span>', true],
-      ['', '<span style="display:inline-flex;align-items:center;gap:7px"><span class="sw" style="background:'+(COLORS[r.couleur]||"#999")+'"></span>'+r.couleur+'</span>', true],
-      ['', r.boite],
-      ['num', r.immat],
-      ['', r.origine],
-      ['num', r.arrivee==="–" ? '<span class="dash">–</span>' : r.arrivee, true],
-      ['', r.canton1],
-      ['', '<span class="tag '+(r.encore==="Oui"?"yes":"no")+'">'+r.encore+'</span>', true],
-      ['', r.cantonA==="–" ? '<span class="dash">–</span>' : r.cantonA, true],
-      ['num', fmtN(r.poids)+(r.poidsEst?'<span title="Poids indicatif">*</span>':''), true]
-    ];
-    cells.forEach(([cls,val,html])=>{
-      const td=document.createElement("td"); if(cls) td.className=cls;
-      html?td.innerHTML=val:td.textContent=val; tr.appendChild(td);
+function passRanges(r) {
+  for (const x of RANGES) {
+    const s = rstate[x.id];
+    let lo, hi;
+    if (x.type === "month") { lo = mkey(s.lo); hi = mkey(s.hi); } else { lo = s.lo === "" ? null : Number(s.lo); hi = s.hi === "" ? null : Number(s.hi); }
+    if (lo === null && hi === null) continue;
+    const v = r[x.key];
+    if (v === null || v === undefined) return false;
+    if (lo !== null && v < lo) return false;
+    if (hi !== null && v > hi) return false;
+  }
+  if (state.q) { const toks = state.q.toLowerCase().split(/\s+/).filter(Boolean); if (!toks.every(t => r.hay.includes(t))) return false; }
+  return true;
+}
+let current = [];
+function update() {
+  GROUPS.forEach(g => {
+    const counts = {};
+    ROWS.forEach(r => { if (passRanges(r) && passGroups(r, g.k)) g.vals(r).forEach(v => counts[v] = (counts[v]||0) + 1); });
+    Object.entries(chipRefs[g.k]).forEach(([v, ref]) => {
+      const n = counts[v] || 0; ref.n.textContent = n;
+      ref.btn.setAttribute("aria-pressed", sel[g.k].has(v));
+      ref.btn.classList.toggle("zero", n === 0);
     });
-    frag.appendChild(tr);
+    badges[g.k].classList.toggle("on", sel[g.k].size > 0); badges[g.k].textContent = sel[g.k].size || "";
   });
-  body.appendChild(frag);
+  RANGES.forEach(x => { const s = rstate[x.id]; const on = s.lo !== "" || s.hi !== ""; x.badge.classList.toggle("on", on); x.badge.textContent = on ? "1" : ""; });
+  current = ROWS.filter(r => passRanges(r) && passGroups(r));
+  render();
 }
 
-/* ---------- mise à jour ---------- */
-function update(){
-  // compteurs par critère : on ignore le critère lui-même pour voir ce qu'on gagnerait en cliquant
-  GROUPS.forEach(g=>{
-    const counts={};
-    DATA.forEach(r=>{ if(matches(r,g.key)&&matchesRanges(r)) counts[r[g.key]]=(counts[r[g.key]]||0)+1; });
-    Object.entries(chipRefs[g.key]).forEach(([v,ref])=>{
-      const n=counts[v]||0;
-      ref.n.textContent=n;
-      const on=state.sel[g.key].has(v);
-      ref.btn.setAttribute("aria-pressed",on);
-      ref.btn.classList.toggle("zero",n===0);
-    });
+/* ---------- affichage ---------- */
+function pathHTML(r) {
+  return '<span class="path">' + r.steps.map((s, i) =>
+    (i ? '<span class="arrow">→</span>' : '') +
+    '<span class="c' + (s.q ? ' q' : '') + '">' + esc(s.c) + (s.q ? "?" : "") + '</span>' + (s.d ? '<span class="d">(' + esc(s.d) + ')</span>' : "")
+  ).join("") + "</span>";
+}
+function cell(c, r) {
+  switch (c.k) {
+    case "n": return esc(r.n) + (r.mine ? '<span class="tag mine">Ma voiture</span>' : "");
+    case "couleur": return '<span style="display:inline-flex;align-items:center;gap:7px"><span class="sw" style="background:' + swatchFor(r.couleur) + '"></span>' + esc(r.couleur) + "</span>";
+    case "immat": return mlabel(r.immatKey);
+    case "arr": return r.arrKey === null ? '<span class="dash">–</span>' : mlabel(r.arrKey);
+    case "parcours": return pathHTML(r);
+    case "encore": return '<span class="tag ' + (r.encore === "Oui" ? "yes" : "no") + '">' + r.encore + "</span>";
+    case "actuel": return r.actuel === "–" ? '<span class="dash">–</span>' : esc(r.actuel);
+    case "der": return r.derKey === null ? "" : mlabel(r.derKey);
+    case "poids": return esc(r.poidsTxt);
+    case "conf": return r.conf === "élevée" ? "élevée" : '<span style="color:#b9770e">partielle</span>';
+    default: return esc(r[c.k]);
+  }
+}
+function sorted() {
+  const col = TCOLS.find(c => c.k === state.sortK), d = state.sortDir;
+  return [...current].sort((a, b) => {
+    let x = col.get(a), y = col.get(b);
+    if (x === null || x === undefined) return 1;
+    if (y === null || y === undefined) return -1;
+    const r = typeof x === "number" && typeof y === "number" ? x - y : String(x).localeCompare(String(y), "fr");
+    return (r * d) || (a.nNum - b.nNum);
   });
-
-  const rows=DATA.filter(fullMatch).sort(cmp);
-  renderRows(rows);
-  document.getElementById("count").innerHTML=rows.length+' <small>sur '+DATA.length+' voitures</small>';
-  document.getElementById("empty").hidden=rows.length>0;
-
-  COLS.forEach(c=>{
-    const on=c.key===state.sortKey;
-    c.th.setAttribute("aria-sort",on?(state.sortDir===1?"ascending":"descending"):"none");
-    c.th.querySelector(".arr").textContent=on?(state.sortDir===1?"▲":"▼"):"";
+}
+function rowClass(r) { return "r" + (r.mine ? " mine" : r.inc ? " inc" : r.statut.startsWith("Import") ? " occ" : "") + (r.encore === "Non" ? " gone" : ""); }
+let shown = [];
+function render() {
+  shown = sorted();
+  let html = "";
+  for (const r of shown) {
+    html += '<tr class="' + rowClass(r) + '" data-n="' + r.nNum + '">';
+    for (const c of TCOLS) html += "<td" + (c.cls ? ' class="' + c.cls + '"' : "") + ">" + cell(c, r) + "</td>";
+    html += "</tr>";
+  }
+  document.getElementById("body").innerHTML = html;
+  document.getElementById("count").innerHTML = shown.length + " <small>sur " + ROWS.length + " voitures</small>";
+  document.getElementById("empty").hidden = shown.length > 0;
+  document.getElementById("export").disabled = shown.length === 0;
+  TCOLS.forEach(c => {
+    const on = c.k === state.sortK;
+    c.th.setAttribute("aria-sort", on ? (state.sortDir === 1 ? "ascending" : "descending") : "none");
+    c.th.querySelector(".arr").textContent = on ? (state.sortDir === 1 ? "▲" : "▼") : "";
   });
 }
 
-document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim(); update();});
-document.getElementById("reset").addEventListener("click",()=>{
-  GROUPS.forEach(g=>state.sel[g.key].clear());
-  Object.assign(state,{immatFrom:"",immatTo:"",arrFrom:"",arrTo:"",pMin:"",pMax:"",q:""});
-  ["immatFrom","immatTo","arrFrom","arrTo","pMin","pMax"].forEach(id=>document.getElementById(id).value="");
-  document.getElementById("q").value="";
-  update();
+/* ---------- détail ---------- */
+document.getElementById("body").addEventListener("click", e => {
+  const tr = e.target.closest("tr.r"); if (!tr) return;
+  const nxt = tr.nextElementSibling;
+  if (nxt && nxt.classList.contains("detail")) { nxt.remove(); return; }
+  const r = ROWS.find(x => x.nNum === +tr.dataset.n);
+  let prev = null;
+  const tl = RELEVES.map((d, i) => {
+    const v = r.hist[i];
+    const pure = v.replace(/[*?]$/, "");
+    let cls = "", label = v;
+    if (v === "—") { cls = "abs"; label = "absente"; }
+    else if (v.startsWith("(pas")) { cls = "pre"; label = "pas en CH"; }
+    else {
+      if (prev !== null && pure !== prev) cls = "chg";
+      if (/[*?]$/.test(v)) cls += " unc";
+      prev = pure;
+    }
+    const tip = /\*$/.test(v) ? ' title="Attribution incertaine : voitures indiscernables"' : /\?$/.test(v) ? ' title="Canton incertain (déduit par élimination)"' : "";
+    return '<div class="' + cls + '"' + tip + "><small>" + esc(d.slice(3)) + "</small>" + esc(label) + "</div>";
+  }).join("");
+  const items = [
+    ["Parcours", null], ["Dernière présence au registre", r.derTxt], ["Fiabilité du parcours", r.confTxt],
+    ["Nombre de cantons", String(r.nb)], ["Arrivée en Suisse", r.arrKey === null ? "–" : mlabel(r.arrKey)], ["Poids", r.poids + " kg" + (r.poidsEst ? " (indicatif)" : "")]
+  ];
+  const d = document.createElement("tr"); d.className = "detail";
+  d.innerHTML = '<td colspan="' + TCOLS.length + '"><div class="dl">' +
+    items.map(([a, b]) => "<div><span>" + esc(a) + "</span>" + (b === null ? pathHTML(r) : esc(b)) + "</div>").join("") +
+    '</div><div class="tl">' + tl + '</div><p class="tlnote">Canton à chaque relevé OFROU. Un trait rouge sous une case marque un changement de canton ; « absente » : plaques déposées ou pas encore au registre à ce relevé.</p></td>';
+  tr.after(d);
 });
-document.getElementById("total").textContent=DATA.length;
+
+/* ---------- contrôles ---------- */
+document.getElementById("q").addEventListener("input", e => { state.q = e.target.value.trim(); update(); });
+document.getElementById("reset").addEventListener("click", () => {
+  GROUPS.forEach(g => sel[g.k].clear());
+  RANGES.forEach(r => { rstate[r.id] = {lo:"", hi:""}; document.getElementById(r.id + "_lo").value = ""; document.getElementById(r.id + "_hi").value = ""; });
+  state.q = ""; document.getElementById("q").value = ""; update();
+});
+document.getElementById("export").addEventListener("click", () => {
+  try {
+    const q = s => '"' + String(s).replace(/"/g, '""') + '"';
+    const head = ["N°","Statut","Couleur","Boîte","1re immat.","Origine","Arrivée CH","1er canton","Parcours","Nb cantons","Encore immat.","Canton actuel","Dernière présence","Poids (kg)","Fiabilité"].concat(RELEVES);
+    const lines = [head.map(q).join(";")];
+    shown.forEach(r => lines.push([r.n, r.statut, r.couleur, r.boite, mlabel(r.immatKey), r.origine, r.arrKey === null ? "" : mlabel(r.arrKey), r.c1, r.parcours, r.nb, r.encore, r.actuel, r.derTxt, r.poidsTxt, r.conf].concat(r.hist).map(q).join(";")));
+    const blob = new Blob(["\ufeff" + lines.join("\r\n")], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "carrera_t_991-2_suisse.csv";
+    document.body.appendChild(a); a.click(); a.remove();
+  } catch (err) { console.error(err); }
+});
+
+/* ---------- en-tête ---------- */
+(function () {
+  const core = ROWS.filter(r => !r.inc), enc = core.filter(r => r.encore === "Oui").length;
+  const extra = ROWS.length - core.length;
+  document.getElementById("sub").textContent = core.length + " mises en circulation, " + enc + " encore immatriculées (registre OFROU, " + D.date + ")." +
+    (extra ? " " + extra + " voiture non tranchée (T ou Carrera) est comptée à part." : "") + " Les filtres se combinent : plusieurs valeurs dans un même critère s'additionnent, les critères différents se restreignent entre eux.";
+})();
 update();
 </script>
 </body>
